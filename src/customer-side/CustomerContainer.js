@@ -24,7 +24,3 @@ if(products.length === 0) return null
 }
 
 export default CustomerContainer;
-    // <div className="CustomerContainer">
-    //     <p>{product1.product_name}</p>
-        
-    // </div>
