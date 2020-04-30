@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 import CustomerContainer from './customer-side/CustomerContainer.js'
 import Homepage from './customer-side/Homepage.js'
-import Product from './customer-side/Product.js'
+import AdminContainer from './admin-side/AdminContainer.js'
 
 
 function App() {
@@ -25,14 +25,16 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={ Homepage } />
-      <Route exact path="/shop" render={ () => 
+
+
+      <Route path="/shop" render={ () => 
           <CustomerContainer products={ products } />
       }/>
-      <Route exact path="/shop/:productId" render={ () => 
-          <Product products={ products } />
+
+      <Route path="/admin" render={ () => 
+          <AdminContainer products={ products } />
       }/>
 
-    
     </Switch>
   );
 }
