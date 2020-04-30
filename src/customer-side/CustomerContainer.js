@@ -1,18 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-function CustomerContainer() {
-    const [products, setProducts] = useState([]);
+function CustomerContainer({ products }) {
 
-    const getProducts = () => {
-        fetch(`http://localhost:8000/api/products`)
-        .then(response => response.json())
-        .then(productsList => setProducts(productsList))
-        .catch(err => console.error)
-    }
-
-    useEffect( () => {
-        getProducts()
-    }, [])
 
 if(products.length === 0) return null
   return (
