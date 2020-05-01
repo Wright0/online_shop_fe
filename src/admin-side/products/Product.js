@@ -1,10 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './products.css';
 
 function Product({ product }) {
+
+  // state -> object with changes which is sent as a json in the post request.
+
+  const [productToUpdate, setProductToUpdate] = useState({product})
+
+  // post request function which is fired onClick of save button on the line
+  
+  const saveProductEdits = () => {
+
+    return console.log("hi")
+  }
+
+  const updateStock = (changeValue) => {
+    // editedValue = productToUpdate[stock_quantity] + changeValue
+    // setProductToUpdate(stock_quantity + changeValue)
+  }
+
   return (
-    <li>
-      <ul class="product-information">
+    <li key={product.id}>
+      <ul className="product-information">
         <li>
           {product.id}
         </li>
@@ -17,13 +34,19 @@ function Product({ product }) {
         <li>
           {product.description}
         </li>
-        <li>
-          {product.price}
+        <li class="clicked">
+          {/* <input>     
+            {product.price}
+          </input> */}
+     
         </li>
         <li>
-          <button>-</button>
+          <button onClick={() => setProductToUpdate(productToUpdate.stock_quantity -1)}>-</button>
           {product.stock_quantity}
-          <button>+</button>
+          <button onClick={() => setProductToUpdate(productToUpdate.stock_quantity +1)}>+</button>
+        </li>
+        <li>
+          <button onClick={saveProductEdits}>save</button>
         </li>
       </ul>
     </li>
