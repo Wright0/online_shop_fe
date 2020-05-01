@@ -1,9 +1,13 @@
 import React from 'react';
+import Product from './Product.js'
 
-function Products() {
+function ProductContainer() {
   return (
-    <h1>Products</h1>
+    <>
+    <h1>I am the product container</h1>
+    <Product/>
+    </>
   );
 }
 
-export default Products;
+export default ProductContainer;
