@@ -18,13 +18,12 @@ function ProductContainer({ products }) {
     }
   })
 
-
   return (
     <>
       <h1>I am the product container</h1>
       <p>I will have a list(ul) and each line will be populated with one product item (a li?) from the Product component. Each Product component will use the id to allow you to edit itself from the productcontainer</p>
-      <button>Edit Mode</button>
-      <button><p>View Mode</p></button>
+      <button onClick={() => setEditMode(true)}><p>Edit Mode</p></button>
+      <button onClick={() => setEditMode(false)}><p>View Mode</p></button>
       
       
       <ul className="products-table">
