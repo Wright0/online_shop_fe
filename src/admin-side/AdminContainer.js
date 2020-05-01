@@ -7,6 +7,7 @@ import AdminPortal from './AdminPortal.js'
 function AdminContainer({ products }) {
   return (
     <div>
+      <header>Manage products | Manage orders and deliveries</header>
     <Switch>
       <Route exact path="/admin" render={ () => 
         <AdminPortal products={ products } />} />
