@@ -1,17 +1,21 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Orders from './orders/Orders.js'
-import Products from './products/Products.js'
+import OrderDeliveryContainer from './orders/OrderDeliveryContainer.js'
+import ProductContainer from './products/ProductContainer.js'
+import AdminPortal from './AdminPortal.js'
 
 function AdminContainer({ products }) {
   return (
     <div>
     <Switch>
       <Route exact path="/admin" render={ () => 
-        <Products products={ products } />} />
+        <AdminPortal products={ products } />} />
 
-      <Route path="/admin/orders" render={ () => 
-        <Orders products={ products } />}
+      <Route exact path="/admin/products" render={ () => 
+        <ProductContainer products={ products } />} />
+
+      <Route path="/admin/orders-and-deliveries" render={ () => 
+        <OrderDeliveryContainer products={ products } />}
       />
     </Switch>
     </div>

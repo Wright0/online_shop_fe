@@ -2,7 +2,7 @@ import React from 'react';
 
 function Products() {
   return (
-    <p>I am an indivicudal project</p>
+    <h1>Products</h1>
   );
 }
 

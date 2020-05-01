@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-function Product({ products }) {
+function ProductContainer({ products }) {
 
     let { productId } = useParams()
 
@@ -20,4 +20,4 @@ if(!product) return (
   );
 }
 
-export default Product;
+export default ProductContainer;

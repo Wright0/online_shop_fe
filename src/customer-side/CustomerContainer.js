@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Product from './Product.js'
+import ProductContainer from './ProductContainer.js'
 import Categories from './Categories.js'
 
 // TODO: this needs to be empty, and just renders the customer pages.
@@ -15,7 +15,7 @@ console.log(products.length)
               <Categories products={ products } />} />
 
             <Route path="/shop/:productId" render={ () => 
-              <Product products={ products } />}
+              <ProductContainer products={ products } />}
             />
           </Switch>
         </div>

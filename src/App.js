@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import CustomerContainer from './customer-side/CustomerContainer.js'
-import Homepage from './customer-side/Homepage.js'
+import Homepage from './Homepage.js'
 import AdminContainer from './admin-side/AdminContainer.js'
 
 
