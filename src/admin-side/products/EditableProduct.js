@@ -1,48 +1,49 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './products.css';
+import { isEqual } from "lodash/fp";
 
-function Product({ product }) {
+function Product({ product, handleUpdatedProduct }) {
 
-//   // state -> object with changes which is sent as a json in the post request.
+  //   // state -> object with changes which is sent as a json in the post request.
 
-//   const [productToUpdate, setProductToUpdate] = useState({product})
+  const [productToUpdate, setProductToUpdate] = useState(null)
 
-//   // post request function which is fired onClick of save button on the line
-  
-//   const saveProductEdits = () => {
+  const handleChange = (field, event) => {
+    if (!productToUpdate) {
+      setProductToUpdate({ ...product, [field]: event.target.value })
+    }
+    else {
+      setProductToUpdate({ ...productToUpdate, [field]: event.target.value })
+    }
+    // console.log(productToUpdate)
+  }
 
-//     return console.log("hi")
-//   }
+  const sendItOrNot = (productToUpdate) => {
+    if (!productToUpdate) {
+      return
+    }
+    else {
+      handleUpdatedProduct(productToUpdate)
+    }
+  }
 
-//   const updateStock = (changeValue) => {
-//     // editedValue = productToUpdate[stock_quantity] + changeValue
-//     // setProductToUpdate(stock_quantity + changeValue)
-//   }
-// const handleForm = (e) => {
-//     console.log(e.target.value)
-// }
+  // const [productToUpdate, dispatch] = useReducer(reducer, product)
 
-const handleChange = (field, event) => {
-    console.log(field)
-    console.log(event.target.value)
-}
+  useEffect(() => {
+    sendItOrNot(productToUpdate)
+  }, [productToUpdate])
 
   return (
     <li key={product.id}>
-        <form>  
-            <input disabled value={product.id}/>
-            <input onChange={(event) => handleChange("product_name", event)} type="text" defaultValue={product.product_name}/>
-            <input onChange={(event) => handleChange("description", event)} type="text" defaultValue={product.description}/>
-            <input onChange={(event) => handleChange("price", event)}type="number" defaultValue={product.price}/>
-            <input onChange={(event) => handleChange("stock_quantity", event)}type="number" defaultValue={product.stock_quantity}/>
-        </form>
+      <form>
+        <input disabled value={product.id} />
+        <input onBlur={(event) => handleChange("product_name", event)} type="text" defaultValue={product.product_name} />
+        <input onBlur={(event) => handleChange("description", event)} type="text" defaultValue={product.description} />
+        <input onBlur={(event) => handleChange("price", event)} type="number" defaultValue={product.price} />
+        <input onBlur={(event) => handleChange("stock_quantity", event)} type="number" defaultValue={product.stock_quantity} />
+      </form>
     </li>
   );
 }
 
 export default Product;
-
-{/* // <input> {product.product_name} </input>
-            // <input> {product.description} </input>
-            // <input> {product.price} </input>
-            // <input> {product.stock_quantity} </input> */}
