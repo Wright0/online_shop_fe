@@ -7,13 +7,16 @@ function NewProduct({ setAddNewStatus }){
     const [newItem, setNewItem] = useState({})
 
     const handleNewItemInput = (field, event) => {
-        setAddNewStatus(false);
         console.log("hi")
+    }
+
+    const submitNewProduct = () => {
+        setAddNewStatus(false);
     }
     
     return (
         <tr key="new">
-          <td><button onClick={handleNewItemInput}>Submit</button></td>
+          <td><button onClick={submitNewProduct}>Submit</button></td>
           <td><textarea onBlur={(event) => handleNewItemInput("product_url", event)} defaultValue="URL"/></td>
           <td><textarea onBlur={(event) => handleNewItemInput("product_name", event)} defaultValue="Product Name"/></td>
           <td><textarea onBlur={(event) => handleNewItemInput("description", event)} defaultValue="Description"/></td>

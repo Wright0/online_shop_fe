@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Product from './Product.js';
 import EditableProduct from './EditableProduct.js';
 import NewProduct from './NewProduct.js';
-
 import './ProductContainer.css';
 
 import { isEqual } from "lodash/fp";
@@ -10,7 +9,6 @@ import { isEqual } from "lodash/fp";
 
 function ProductContainer({ products }) {
 
-  // const params = useParams();
 
 
   const [editMode, setEditMode] = useState(false)
@@ -19,7 +17,9 @@ function ProductContainer({ products }) {
   const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
 
 
-  // function to check if it's in products -> returns true/false
+  //BUNDLING AND SENDING OF CHANGES TO DATABASE FOR EDIT MODE (currently a mess)
+  
+      // function to check if it's in products -> returns true/false
   const isEqualToDBProduct = (itemToBeCompared) => {
     const productInDatabase = products.find(item => item.id === itemToBeCompared.id);
     console.log(itemToBeCompared)
@@ -45,18 +45,21 @@ function ProductContainer({ products }) {
     console.log(isEqualToDBProduct(itemToBeCompared));
     return;
 
-    if (!isInChangesToBeSubmitted(itemToBeCompared)) {
-      console.log("not In Changes To Be Submitted")
-    }
-    // push it into changes to be changesToBeSubmitted
+    // if (!isInChangesToBeSubmitted(itemToBeCompared)) {
+    //   console.log("not In Changes To Be Submitted")
+    // }
+    // // push it into changes to be changesToBeSubmitted
 
-    if (isDifferentFromChangesToBeSubmittedVersion(itemToBeCompared)) {
-      console.log("it's in changes and it has extra edit")
-    }
+    // if (isDifferentFromChangesToBeSubmittedVersion(itemToBeCompared)) {
+    //   console.log("it's in changes and it has extra edit")
+    // }
 
-    return;
+    // return;
   }
+  
 
+
+  //MAP PRODUCTS OUT IN TABLE (as a product or editable product)
   const productItem = products.map(product => {
     if (editMode === true) {
       return <EditableProduct key={product.id} product={product} handleUpdatedProduct={handleUpdatedProduct} />
@@ -66,13 +69,19 @@ function ProductContainer({ products }) {
     }
   })
 
+  //BUTTON AND RENDERING LOGIC
   const pageStatus = () => editMode ? "Cancel" : "Edit";
 
   const toggleEditCancelButtonClass = () => editMode ? "cancel-product" : "edit-product"
 
-  const productTable = () => editMode ? "edit-mode" : "view-mode";
+  const productTableClass = () => editMode ? "edit-mode" : "view-mode";
 
-  const toggleEditMode = () => setEditMode(!editMode);
+  const toggleEditMode = () => {
+    if (!editMode) {
+      setAddNewMode(false);
+    }
+    setEditMode(!editMode);
+  }
 
   const saveButton = () => {
     if (editMode) return <button className="publish-product">Save</button>;
@@ -86,7 +95,7 @@ function ProductContainer({ products }) {
   const newProduct = () => {
     if (editMode && addNewMode) return <NewProduct setAddNewStatus={setAddNewMode}/>;
   } 
-  
+
   return (
     <>
     <header>
@@ -112,7 +121,7 @@ function ProductContainer({ products }) {
           </tr>
         </thead>
 
-        <tbody className={productTable()}>
+        <tbody className={productTableClass()}>
           { productItem }
           { newProduct() }
         </tbody>
