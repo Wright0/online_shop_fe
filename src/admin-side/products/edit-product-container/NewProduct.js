@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './EditableProduct.css'; 
 import './NewProduct.css'; 
 
-function NewProduct({ saveNewItem, setAddNewStatus }){
+function NewProduct({ saveNewItem, handleClickAddNew }){
 
     const defaultNewItem = {
         "product_name": "Name",
@@ -19,8 +19,8 @@ function NewProduct({ saveNewItem, setAddNewStatus }){
     }
 
     const submitNewProduct = () => {
-        saveNewItem(newItem);
-        setAddNewStatus(false);
+        saveNewItem(newItem); 
+        handleClickAddNew();
     }
     
     return (

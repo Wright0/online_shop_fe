@@ -3,14 +3,16 @@ import '../view-product-container/ViewProductsTable.css';
 import EditableProduct from './EditableProduct.js'
 import NewProduct from './NewProduct.js'
 
-function EditProductsTable( {products, isAddingNew, setIsAddingNew, saveNewItem} ) {
+function EditProductsTable( {products, isAddingNew, handleClickAddNew, saveNewItem} ) {
 
   const tableRow = products.map(product => {
     return <EditableProduct key={product.id} product={product} />
   })
 
   const newProduct = () => {
-    if (isAddingNew) return <NewProduct saveNewItem={saveNewItem} setAddNewStatus={setIsAddingNew}/>;
+    if (isAddingNew) {
+      return <NewProduct saveNewItem={saveNewItem} handleClickAddNew={handleClickAddNew}/>
+    }
   } 
 
   return (
@@ -28,6 +30,7 @@ function EditProductsTable( {products, isAddingNew, setIsAddingNew, saveNewItem}
 
         {tableRow}
         {newProduct()}
+        
 
     </table>
   );
