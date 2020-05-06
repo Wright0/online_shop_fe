@@ -1,0 +1,57 @@
+input,
+textarea,
+.products-table > tbody > tr {
+    background-color:var(--OffWhite);
+    text-align: center;
+    color:var(--RaisinBlack);
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+}
+
+.products-table {
+    width:95%;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.products-table > thead > tr > th {
+    color:var(--LightBlue);
+    height: 3rem;
+    border-bottom: 2px solid var(--RaisinBlack);
+}
+
+.products-table > tbody > tr > td {
+    max-width:28rem;
+    text-align: center;
+    border-bottom: 1px solid var(--LightGrey);
+    height: 1.5rem;
+    padding:0.5rem;
+}
+
+.edit-buttons-container{
+    width: 400px;
+    margin: 20px auto;
+
+    display:flex;
+    justify-content: space-evenly;
+}
+
+ .edit-buttons-container > button {
+    cursor:pointer;
+    height: 40px;
+    min-width: 100px;
+    font-size: 1rem;
+}
+
+.cancel-product{
+    color: var(--OffWhite);
+    background-color: #FB3640;
+}
+
+.new-product,
+.publish-product,
+.edit-product {
+    color:var(--OffWhite);
+    background-color: var(--LightBlue);
+}
+

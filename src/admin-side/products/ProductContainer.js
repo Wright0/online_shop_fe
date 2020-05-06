@@ -15,22 +15,13 @@ function ProductContainer({ products }) {
   const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
 
 
-  const saveNewItem = () => {
-
-    const testObject = {
-      "product_name": "Test product",
-      "description": "Lorem ipsum ",
-      "image_url": "I am a URL",
-      "price": 10,
-      "stock_quantity": 7
-    }
-
+  const saveNewItem = (newItem) => {
     fetch(`http://localhost:8000/api/products/`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json;charset=utf-8"
       },
-      body: JSON.stringify(testObject)
+      body: JSON.stringify(newItem)
     }).then((response) => console.log(response))
   }
 

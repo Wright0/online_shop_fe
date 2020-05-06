@@ -3,7 +3,7 @@ import { isEqual } from "lodash/fp";
 
 import './EditableProduct.css'; 
 
-function Product({ product, handleUpdatedProduct }) {
+function EditableProduct({ product, handleUpdatedProduct }) {
 
   //   // state -> object with changes which is sent as a json in the post request.
 
@@ -46,4 +46,4 @@ function Product({ product, handleUpdatedProduct }) {
   );
 }
 
-export default Product;
+export default EditableProduct;
