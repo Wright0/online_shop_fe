@@ -24,14 +24,17 @@ function NewProduct({ saveNewItem, setAddNewStatus }){
     }
     
     return (
-        <tr key="new">
-          <td><button onClick={submitNewProduct}>Submit</button></td>
-          <td><textarea onBlur={(event) => handleNewItemInput("product_url", event)} defaultValue={newItem.image_url}/></td>
-          <td><textarea onBlur={(event) => handleNewItemInput("product_name", event)} defaultValue={newItem.product_name}/></td>
-          <td><textarea onBlur={(event) => handleNewItemInput("description", event)} defaultValue={newItem.description}/></td>
-          <td><input type="number" onBlur={(event) => handleNewItemInput("price", event)} defaultValue={newItem.price}/></td>
-          <td><input type="number" onBlur={(event) => handleNewItemInput("stock_quantity", event)} defaultValue={newItem.stock_quantity}/></td>
-        </tr>
+        <tbody>
+            <tr key="new">
+                <td><button onClick={submitNewProduct}>Submit</button></td>
+                <td><textarea onBlur={(event) => handleNewItemInput("product_url", event)} defaultValue={newItem.image_url}/></td>
+                <td><textarea onBlur={(event) => handleNewItemInput("product_name", event)} defaultValue={newItem.product_name}/></td>
+                <td><textarea onBlur={(event) => handleNewItemInput("description", event)} defaultValue={newItem.description}/></td>
+                <td><input type="number" onBlur={(event) => handleNewItemInput("price", event)} defaultValue={newItem.price}/></td>
+                <td><input type="number" onBlur={(event) => handleNewItemInput("stock_quantity", event)} defaultValue={newItem.stock_quantity}/></td>
+            </tr>
+        </tbody>
+        
     )
 
 }

@@ -6,7 +6,7 @@
     justify-content: space-evenly;
 }
 
- .edit-buttons-container > button {
+ .edit-buttons-container button {
     cursor:pointer;
     height: 40px;
     min-width: 100px;

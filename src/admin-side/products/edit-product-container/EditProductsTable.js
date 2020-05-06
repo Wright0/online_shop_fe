@@ -1,12 +1,17 @@
 import React from 'react';
 import '../view-product-container/ViewProductsTable.css';
 import EditableProduct from './EditableProduct.js'
+import NewProduct from './NewProduct.js'
 
-function EditProductsTable( {products} ) {
+function EditProductsTable( {products, isAddingNew, setIsAddingNew, saveNewItem} ) {
 
   const tableRow = products.map(product => {
     return <EditableProduct key={product.id} product={product} />
   })
+
+  const newProduct = () => {
+    if (isAddingNew) return <NewProduct saveNewItem={saveNewItem} setAddNewStatus={setIsAddingNew}/>;
+  } 
 
   return (
     <table className="products-table">
@@ -22,6 +27,7 @@ function EditProductsTable( {products} ) {
         </thead>
 
         {tableRow}
+        {newProduct()}
 
     </table>
   );
