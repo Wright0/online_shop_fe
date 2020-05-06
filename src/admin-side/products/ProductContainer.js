@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from './Product.js';
 import EditableProduct from './EditableProduct.js';
-import './productContainer.css';
+import NewProduct from './NewProduct.js';
+
+import './ProductContainer.css';
+
 import { isEqual } from "lodash/fp";
 
 
 function ProductContainer({ products }) {
 
-  // console.log("container products " + products)
+  // const params = useParams();
+
+
   const [editMode, setEditMode] = useState(false)
+  const [addNewMode, setAddNewMode] = useState(false)
 
   const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
 
@@ -29,7 +35,7 @@ function ProductContainer({ products }) {
     const currentEditedItem = changesToBeSubmitted.find(item => item.id === itemToBeCompared.id);
     return isEqual(currentEditedItem, itemToBeCompared);
   }
-  // 
+  
   const handleUpdatedProduct = (itemToBeCompared) => {
 
     // if (!isDifferentToDBProduct(itemToBeCompared)) {
@@ -60,21 +66,62 @@ function ProductContainer({ products }) {
     }
   })
 
-  const pageStatus = () => editMode ? "Cancel" : "Edit"
+  const pageStatus = () => editMode ? "Cancel" : "Edit";
 
-  const toggleEditMode = () => setEditMode(!editMode)
+  const toggleEditCancelButtonClass = () => editMode ? "cancel-product" : "edit-product"
 
+  const productTable = () => editMode ? "edit-mode" : "view-mode";
+
+  const toggleEditMode = () => setEditMode(!editMode);
+
+  const saveButton = () => {
+    if (editMode) return <button className="publish-product">Save</button>;
+  }
+
+  const activateNewProduct = () => {
+      setEditMode(true);
+      setAddNewMode(true);
+  }
+
+  const newProduct = () => {
+    if (editMode && addNewMode) return <NewProduct setAddNewStatus={setAddNewMode}/>;
+  } 
+  
   return (
     <>
-      <h1>I am the product container</h1>
-      <p>I will have a list(ul) and each line will be populated with one product item (a li?) from the Product component. Each Product component will use the id to allow you to edit itself from the productcontainer</p>
-      <button onClick={() => toggleEditMode()}>{pageStatus()}</button>
+    <header>
+      <h1>Manage Products</h1>
+    </header>
 
-      <ul className="products-table">
-        {productItem}
-      </ul>
+    <main>
+      <div className="edit-buttons-container">
+        <button className={toggleEditCancelButtonClass()} onClick={() => toggleEditMode()}>{pageStatus()}</button>
+        <button className="new-product" onClick={() => activateNewProduct()}>New</button>
+        {saveButton()}
+      </div>
+      
+      <table className="products-table">
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Image URL</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock Amount</th>
+          </tr>
+        </thead>
 
+        <tbody className={productTable()}>
+          { productItem }
+          { newProduct() }
+        </tbody>
+      </table>
+
+    </main>
+    
     </>
+  
   );
 }
 

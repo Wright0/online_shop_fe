@@ -1,33 +1,18 @@
-import React, {useState} from 'react';
-import './products.css';
+import React from 'react';
+
+import './Product.css'; 
 
 function Product({ product }) {
 
   return (
-    <li key={product.id}>
-      <ul className="product-information">
-        <li>
-          {product.id}
-        </li>
-        <li>
-          {product.image_url}
-        </li>
-        <li>
-          {product.product_name}
-        </li>
-        <li>
-          {product.description}
-        </li>
-        <li> 
-          {product.price}
-        </li>
-        <li>
-          {/* <button onClick={() => setProductToUpdate(productToUpdate.stock_quantity -1)}>-</button> */}
-          {product.stock_quantity}
-          {/* <button onClick={() => setProductToUpdate(productToUpdate.stock_quantity +1)}>+</button> */}
-        </li>
-      </ul>
-    </li>
+      <tr key={product.id}>
+        <td>{product.id}</td>
+        <td><textarea disabled defaultValue={product.image_url} /></td>
+        <td>{product.product_name}</td>
+        <td>{product.description}</td>
+        <td>{product.price}</td>
+        <td>{product.stock_quantity}</td>
+      </tr>
   );
 }
 

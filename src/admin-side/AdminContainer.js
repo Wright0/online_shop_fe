@@ -15,6 +15,9 @@ function AdminContainer({ products }) {
       <Route exact path="/admin/products" render={ () => 
         <ProductContainer products={ products } />} />
 
+        <Route exact path="/admin/products/edit" render={ () => 
+        <ProductContainer products={ products } />} />
+
       <Route path="/admin/orders-and-deliveries" render={ () => 
         <OrderDeliveryContainer products={ products } />}
       />

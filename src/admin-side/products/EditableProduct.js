@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './products.css';
 import { isEqual } from "lodash/fp";
+
+import './EditableProduct.css'; 
 
 function Product({ product, handleUpdatedProduct }) {
 
@@ -34,15 +35,14 @@ function Product({ product, handleUpdatedProduct }) {
   }, [productToUpdate])
 
   return (
-    <li key={product.id}>
-      <form>
-        <input disabled value={product.id} />
-        <input onBlur={(event) => handleChange("product_name", event)} type="text" defaultValue={product.product_name} />
-        <input onBlur={(event) => handleChange("description", event)} type="text" defaultValue={product.description} />
-        <input onBlur={(event) => handleChange("price", event)} type="number" defaultValue={product.price} />
-        <input onBlur={(event) => handleChange("stock_quantity", event)} type="number" defaultValue={product.stock_quantity} />
-      </form>
-    </li>
+    <tr key={product.id}>
+      <td><input type="number" className="id" disabled defaultValue={product.id}/></td>
+      <td><textarea onBlur={(event) => handleChange("product_url", event)} defaultValue={product.image_url}/></td>
+      <td><textarea onBlur={(event) => handleChange("product_name", event)} defaultValue={product.product_name}/></td>
+      <td><textarea onBlur={(event) => handleChange("description", event)} defaultValue={product.description}/></td>
+      <td><input type="number" onBlur={(event) => handleChange("price", event)} defaultValue={product.price}/></td>
+      <td><input type="number" onBlur={(event) => handleChange("stock_quantity", event)} defaultValue={product.stock_quantity}/></td>
+    </tr>
   );
 }
 
