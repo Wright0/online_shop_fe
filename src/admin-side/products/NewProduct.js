@@ -2,15 +2,26 @@ import React, { useState } from 'react';
 import './EditableProduct.css'; 
 import './NewProduct.css'; 
 
-function NewProduct({ setAddNewStatus }){
+function NewProduct({ saveNewItem, setAddNewStatus }){
 
     const [newItem, setNewItem] = useState({})
 
     const handleNewItemInput = (field, event) => {
-        console.log("hi")
+
+        const testObject = {
+            "product_name": "Test product",
+            "description": "Lorem ipsum ",
+            "image_url": "I am a URL",
+            "price": 10,
+            "stock_quantity": 7
+        }
+
+        setNewItem()
+        console.log(newItem)
     }
 
     const submitNewProduct = () => {
+        saveNewItem(newItem)
         setAddNewStatus(false);
     }
     

@@ -9,13 +9,30 @@ import { isEqual } from "lodash/fp";
 
 function ProductContainer({ products }) {
 
-
-
   const [editMode, setEditMode] = useState(false)
   const [addNewMode, setAddNewMode] = useState(false)
 
   const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
 
+
+  const saveNewItem = () => {
+
+    const testObject = {
+      "product_name": "Test product",
+      "description": "Lorem ipsum ",
+      "image_url": "I am a URL",
+      "price": 10,
+      "stock_quantity": 7
+    }
+
+    fetch(`http://localhost:8000/api/products/`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(testObject)
+    }).then((response) => console.log(response))
+  }
 
   //BUNDLING AND SENDING OF CHANGES TO DATABASE FOR EDIT MODE (currently a mess)
   
@@ -93,7 +110,7 @@ function ProductContainer({ products }) {
   }
 
   const newProduct = () => {
-    if (editMode && addNewMode) return <NewProduct setAddNewStatus={setAddNewMode}/>;
+    if (editMode && addNewMode) return <NewProduct saveNewItem={saveNewItem} setAddNewStatus={setAddNewMode}/>;
   } 
 
   return (
