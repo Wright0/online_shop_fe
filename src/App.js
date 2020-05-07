@@ -7,6 +7,7 @@ import Homepage from './Homepage.js';
 import AdminPortal from './admin-side/AdminPortal.js';
 import ViewProductContainer from './admin-side/products/view-product-container/ViewProductContainer.js'
 import EditProductContainer from './admin-side/products/edit-product-container/EditProductContainer.js'
+import Error404 from './Error404.js'
 
 function App() {
 
@@ -46,6 +47,8 @@ function App() {
       {/* <Route exact path="/admin/orders-and-deliveries" render={ () => 
         <OrderDeliveryContainer products={ products } />
       }/> */}
+
+      <Route render={() => <Error404/>} />
 
     </Switch>
   );
