@@ -27,7 +27,7 @@ function EditProductsTable( {products, isAddingNew, handleClickAddNew, saveNewIt
             <th>Stock Amount</th>
           </tr>
         </thead>
-        
+
         {newProduct()}
         {tableRow}
         

@@ -1,12 +1,14 @@
 .edit-buttons-container{
-    width: 400px;
-    margin: 20px auto;
+    width: 40%;
+    margin: 20px;
+    border: solid red 1px;
 
     display:flex;
     justify-content: space-evenly;
 }
 
  .edit-buttons-container button {
+    color: var(--OffWhite);
     cursor:pointer;
     height: 40px;
     min-width: 100px;
@@ -14,13 +16,14 @@
 }
 
 .cancel-product{
-    color: var(--OffWhite);
     background-color: #FB3640;
 }
 
 .new-product,
-.save-product,
 .edit-product {
-    color:var(--OffWhite);
     background-color: var(--LightBlue);
+}
+
+.publish-product{
+    background-color:#338156;
 }
