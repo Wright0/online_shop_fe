@@ -1,8 +1,14 @@
 import React from 'react';
 import TableRows from './table-row-elements/TableRow.js';
+import NewProduct from './table-row-elements/NewProduct.js'
 import './Table.css';
 
 function Table( {isAddingNew, handleClickAddNew, saveNewItem} ) {
+
+  const newItem = () => {
+    if (isAddingNew) return <NewProduct handleClickAddNew={handleClickAddNew} saveNewItem={saveNewItem}/>
+
+  }
 
   return (
     <table className="products-table">
@@ -17,7 +23,12 @@ function Table( {isAddingNew, handleClickAddNew, saveNewItem} ) {
             <th></th>
           </tr>
         </thead>
-      <TableRows/>
+        <tbody>
+        {newItem()}
+        <TableRows
+        />
+        </tbody>
+      
         
     </table>
   );

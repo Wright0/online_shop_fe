@@ -1,0 +1,23 @@
+button.submit,
+button.save,
+button.edit,
+button.cancel {
+    cursor:pointer;
+    height: 25px;
+    min-width: 60px;
+    font-size: 0.8rem;
+    color: var(--OffWhite)
+}
+
+button.submit,
+button.save {
+    background-color: #53af6f;
+}
+
+button.edit {
+    background-color: blue;
+}
+
+button.cancel{
+    background-color: #FB3640;
+}

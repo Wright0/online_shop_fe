@@ -28,14 +28,12 @@ function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting }) {
     }
   }
 
-  // const [productToUpdate, dispatch] = useReducer(reducer, product)
 
   useEffect(() => {
     sendItOrNot(productToUpdate)
   }, [productToUpdate])
 
   return (
-    <tbody>
       <tr key={product.id} className="editable-row">
         <td><input type="number" className="id" disabled defaultValue={product.id}/></td>
         <td><textarea onBlur={(event) => handleChange("product_url", event)} defaultValue={product.image_url}/></td>
@@ -43,9 +41,11 @@ function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting }) {
         <td><textarea onBlur={(event) => handleChange("description", event)} defaultValue={product.description}/></td>
         <td><input type="number" onBlur={(event) => handleChange("price", event)} defaultValue={product.price}/></td>
         <td><input type="number" onBlur={(event) => handleChange("stock_quantity", event)} defaultValue={product.stock_quantity}/></td>
-        <td><button onClick={() => toggleEditSetting(product)}>Cancel</button> <button>Save</button></td>
+        <td>
+          <button className="cancel" onClick={() => toggleEditSetting(product)}>Cancel</button> 
+          <button className="save">Save</button>
+        </td>
       </tr>
-    </tbody>
     
   );
 }

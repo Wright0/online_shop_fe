@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import ManageProductsHeader from './ManageProductsHeader.js'
-import Table from './table-elements/Table.js'
+import ManageProductsHeader from './ManageProductsHeader.js';
+import AddProductButton from './button-elements/AddProductButton.js'
+import Table from './table-elements/Table.js';
 
 import { isEqual } from "lodash/fp";
 
-function EditProductContainer() {
+function ProductContainer() {
 
-    const [isAddingNew, setIsAddingNew] = useState(false)
+    const [isAddingNew, setIsAddingNew] = useState(true)
 
     const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
 
@@ -67,7 +68,7 @@ function EditProductContainer() {
   return (
     <div>
         <ManageProductsHeader/>
-
+        <AddProductButton handleClickAddNew={handleClickAddNew}/>
         <Table 
             isAddingNew={ isAddingNew }
             handleClickAddNew={ handleClickAddNew }
@@ -77,5 +78,5 @@ function EditProductContainer() {
   );
 }
 
-export default EditProductContainer;
+export default ProductContainer;
 
