@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import EditProductsTable from './EditProductsTable.js';
-import EditButtons from './EditButtons.js'
-import ManageProductsHeader from '../ManageProductsHeader.js'
+import ManageProductsHeader from './ManageProductsHeader.js'
+import Table from './table-elements/Table.js'
 
 import { isEqual } from "lodash/fp";
 
-function EditProductContainer( {products} ) {
+function EditProductContainer() {
 
     const [isAddingNew, setIsAddingNew] = useState(false)
 
@@ -69,10 +68,7 @@ function EditProductContainer( {products} ) {
     <div>
         <ManageProductsHeader/>
 
-        <EditButtons handleClickAddNew={ handleClickAddNew } />
-
-        <EditProductsTable 
-            products={ products }
+        <Table 
             isAddingNew={ isAddingNew }
             handleClickAddNew={ handleClickAddNew }
             saveNewItem={saveNewItem}

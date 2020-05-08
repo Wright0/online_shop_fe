@@ -3,7 +3,7 @@ import { isEqual } from "lodash/fp";
 
 import './EditableProduct.css'; 
 
-function EditableProduct({ product, handleUpdatedProduct }) {
+function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting }) {
 
   //   // state -> object with changes which is sent as a json in the post request.
 
@@ -43,6 +43,7 @@ function EditableProduct({ product, handleUpdatedProduct }) {
         <td><textarea onBlur={(event) => handleChange("description", event)} defaultValue={product.description}/></td>
         <td><input type="number" onBlur={(event) => handleChange("price", event)} defaultValue={product.price}/></td>
         <td><input type="number" onBlur={(event) => handleChange("stock_quantity", event)} defaultValue={product.stock_quantity}/></td>
+        <td><button onClick={() => toggleEditSetting(product)}>Cancel</button> <button>Save</button></td>
       </tr>
     </tbody>
     

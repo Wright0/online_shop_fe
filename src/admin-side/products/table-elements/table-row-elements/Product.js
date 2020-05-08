@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css'; 
 
-function Product({ product }) {
+function Product({ product, toggleEditSetting }) {
 
   return (
     <tbody>
@@ -12,6 +12,7 @@ function Product({ product }) {
         <td>{product.description}</td>
         <td>{product.price}</td>
         <td>{product.stock_quantity}</td>
+        <td><button onClick={() => toggleEditSetting(product)}>Edit</button></td>
       </tr>
     </tbody>
   );

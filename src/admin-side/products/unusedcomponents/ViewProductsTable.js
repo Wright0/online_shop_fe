@@ -1,6 +1,6 @@
 import React from 'react';
 import './ViewProductsTable.css';
-import Product from './Product.js'
+import Product from '../table-row-elements/Product.js'
 
 function ViewProductsTable( {products} ) {
 
