@@ -3,7 +3,7 @@ import { isEqual } from "lodash/fp";
 
 import './EditableProduct.css'; 
 
-function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting, isEditingAll }) {
+function EditableProduct({product, handleUpdatedProduct, toggleEditSetting}) {
 
   //   // state -> object with changes which is sent as a json in the post request.
 
@@ -34,14 +34,12 @@ function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting, isE
   }, [productToUpdate])
 
   const individualModeButtons = () => {
-    if (!isEditingAll){
         return (
         <td>
           <button className="save">Save</button>
           <p className="cancel" onClick={() => toggleEditSetting(product)}>Cancel</p> 
         </td>
-        ) 
-    }
+        )
 }
 
   return (

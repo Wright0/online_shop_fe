@@ -9,7 +9,6 @@ import { isEqual } from "lodash/fp";
 function ProductContainer() {
 
     const [isAddingNew, setIsAddingNew] = useState(false)
-    const [isEditingAll, setIsEditingAll] = useState(false)
 
     const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
     
@@ -64,11 +63,9 @@ function ProductContainer() {
     <div>
         <ManageProductsHeader/>
         {renderNewProductButton()}
-        <EditAllButton/>
         <Table 
             isAddingNew={ isAddingNew }
             handleClickAddNew={ handleClickAddNew }
-            isEditingAll={ isEditingAll }
         />
     </div>
   );

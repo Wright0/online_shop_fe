@@ -3,7 +3,7 @@ import TableRows from './table-row-elements/TableRow.js';
 import NewProduct from './table-row-elements/NewProduct.js'
 import './Table.css';
 
-function Table( {isAddingNew, handleClickAddNew, isEditingAll} ) {
+function Table( {isAddingNew, handleClickAddNew} ) {
 
   const saveNewItem = (newItem) => {
     fetch(`http://localhost:8000/api/products/`, {
@@ -17,7 +17,6 @@ function Table( {isAddingNew, handleClickAddNew, isEditingAll} ) {
 
   const newItem = () => {
     if (isAddingNew) return <NewProduct handleClickAddNew={handleClickAddNew} saveNewItem={saveNewItem}/>
-
   }
 
   return (
@@ -35,9 +34,7 @@ function Table( {isAddingNew, handleClickAddNew, isEditingAll} ) {
         </thead>
         <tbody>
         {newItem()}
-        <TableRows
-          isEditingAll={isEditingAll}
-        />
+        <TableRows/>
         </tbody>
       
         

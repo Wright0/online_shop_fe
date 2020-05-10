@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import EditableProduct from './EditableProduct.js'
 import Product from './Product.js'
 
-function TableRows({isEditingAll}) {
+function TableRows() {
 
     const [products, setProducts] = useState([]);
 
@@ -43,7 +43,6 @@ function TableRows({isEditingAll}) {
                     key={product.id} 
                     product={product} 
                     toggleEditSetting={toggleEditSetting}
-                    isEditingAll={isEditingAll}
                 />
             )
         } else {
