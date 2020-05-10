@@ -3,11 +3,11 @@ import TableRows from './table-row-elements/TableRow.js';
 import NewProduct from './table-row-elements/NewProduct.js'
 import './Table.css';
 
-function Table( {isAddingNew, handleClickAddNew} ) {
+function Table({ isAddingNew, handleClickAddNew }) {
 
   const [products, setProducts] = useState([]);
 
-  const giveProductsEditableMode = (productsList) => {
+  const giveProductsEditableModeAtGET = (productsList) => {
       const newProducts = productsList.map(product => {
           return {...product, ["isInEditMode"]: false}}
           )
@@ -17,13 +17,22 @@ function Table( {isAddingNew, handleClickAddNew} ) {
   const getProducts = () => {
       fetch(`http://localhost:8000/api/products`)
       .then(response => response.json())
-      .then(productsList => giveProductsEditableMode(productsList))
+      .then(productsList => giveProductsEditableModeAtGET(productsList))
       .catch(err => console.error)
   }
 
   useEffect( () => {
     getProducts()
   }, [])
+
+  //The problem with this is that you don't have the ID yet. I've set it to be pending when it loads and when you refresh, it'll grab the ID
+  const addNewProductToProductsArray = (newItem) => {
+    newItem.isInEditMode = false;
+    newItem.id = "pending"
+    const productsWithNewAddition = [...products];
+    productsWithNewAddition.push(newItem);
+    setProducts(productsWithNewAddition);
+  }
 
   const saveNewItem = (newItem) => {
     fetch(`http://localhost:8000/api/products/`, {
@@ -32,7 +41,34 @@ function Table( {isAddingNew, handleClickAddNew} ) {
         "Content-Type": "application/json;charset=utf-8"
       },
       body: JSON.stringify(newItem)
-    }).then((response) => console.log(response))
+    })
+    .then(addNewProductToProductsArray(newItem))
+  }
+
+  const changeProductInProductsArray = (itemBeingChanged) => {
+    itemBeingChanged.isInEditMode = false;
+    
+    const productsCopy = products.map( product => {
+      if (product.id === itemBeingChanged.id) {
+        return itemBeingChanged
+      } else {
+        return product
+      }
+    });
+
+    setProducts(productsCopy);
+  }
+
+  const editItem = (item) => {
+    delete item.isInEditMode;
+    fetch(`http://localhost:8000/api/products/${item.id}/`,{
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(item)
+    })
+    .then( () => changeProductInProductsArray(item))
   }
 
   const newItem = () => {
@@ -57,6 +93,7 @@ function Table( {isAddingNew, handleClickAddNew} ) {
         <TableRows 
           products={products}
           setProducts={setProducts}
+          editItem={editItem}
         />
         </tbody>
       

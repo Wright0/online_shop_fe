@@ -14,6 +14,11 @@ button.save {
     background-color: #53af6f;
 }
 
+button.submit:hover,
+button.save:hover {
+    background-color: #3d8a55;
+}
+
 button.edit {
     background-color: blue;
 }

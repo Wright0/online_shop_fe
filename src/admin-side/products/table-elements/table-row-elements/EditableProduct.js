@@ -3,40 +3,38 @@ import { isEqual } from "lodash/fp";
 
 import './EditableProduct.css'; 
 
-function EditableProduct({product, handleUpdatedProduct, toggleEditSetting}) {
+function EditableProduct({product, handleUpdatedProduct, toggleEditSetting, editItem}) {
 
-  //   // state -> object with changes which is sent as a json in the post request.
+  // state -> object with changes which is sent as a json in the post request.
 
-  const [productToUpdate, setProductToUpdate] = useState(null)
+  const [productToUpdate, setProductToUpdate] = useState(product)
 
   const handleChange = (field, event) => {
-    if (!productToUpdate) {
-      setProductToUpdate({ ...product, [field]: event.target.value })
-    }
-    else {
       setProductToUpdate({ ...productToUpdate, [field]: event.target.value })
-    }
-    // console.log(productToUpdate)
   }
 
-  const sendItOrNot = (productToUpdate) => {
-    if (!productToUpdate) {
-      return
-    }
-    else {
-      handleUpdatedProduct(productToUpdate)
-    }
-  }
+  // const sendItOrNot = (productToUpdate) => {
+  //   if (!productToUpdate) {
+  //     return
+  //   }
+  //   else {
+  //     handleUpdatedProduct(productToUpdate)
+  //   }
+  // }
 
+  // useEffect(() => {
+  //   sendItOrNot(productToUpdate)
+  // }, [productToUpdate])
 
-  useEffect(() => {
-    sendItOrNot(productToUpdate)
-  }, [productToUpdate])
+  // const clickSave = () => {
+  //   editItem(productToUpdate)
+  //   // toggleEditSetting(product)
+  // }
 
   const individualModeButtons = () => {
         return (
         <td>
-          <button className="save">Save</button>
+          <button className="save" onClick={() => editItem(productToUpdate)}>Save</button>
           <p className="cancel" onClick={() => toggleEditSetting(product)}>Cancel</p> 
         </td>
         )
