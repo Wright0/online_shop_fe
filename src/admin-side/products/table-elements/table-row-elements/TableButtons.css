@@ -20,7 +20,11 @@ button.save:hover {
 }
 
 button.edit {
-    background-color: blue;
+    background-color: var(--LightBlue);
+}
+
+button.edit:hover{
+    background-color: var(--DarkBlue);
 }
 
 p.cancel{

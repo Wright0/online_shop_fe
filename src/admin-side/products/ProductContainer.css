@@ -1,0 +1,16 @@
+.productContainerHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr;
+}
+
+.productContainerHeader h1 {
+    place-self:center;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.productContainerHeader button {
+    place-self:center;
+    grid-column-start: 5;
+    grid-column-end: 6;
+}

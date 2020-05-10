@@ -1,25 +1,11 @@
-button.new-product,
-button.edit-all{
-    width: 5%;
+button.new-product{
+    width: 4rem;
+    height:2rem;
+    color: var(--OffWhite);
+    background-color: var(--LightBlue);
+    cursor: pointer;
 }
 
- /* .edit-buttons-container button {
-    color: var(--OffWhite);
-    cursor:pointer;
-    height: 40px;
-    min-width: 100px;
-    font-size: 1rem;
-} */
-
-/* .cancel-product{
-    background-color: #FB3640;
-} */
-
-/* .new-product,
-.edit-product {
-    background-color: var(--LightBlue);
-} */
-
-/* .publish-product{
-    background-color:#338156;
-} */
+button.new-product:hover{
+    background-color: var(--DarkBlue);
+}

@@ -4,7 +4,7 @@ import './Buttons.css';
 function AddProductButtons({handleClickAddNew}) {
 
   return (
-    <button className="new-product" onClick={handleClickAddNew}>New</button>
+    <button className="new-product" onClick={handleClickAddNew}>New +</button>
   );
 }
 

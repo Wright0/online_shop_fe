@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ManageProductsHeader from './ManageProductsHeader.js';
 import AddProductButton from './button-elements/AddProductButton.js'
 import Table from './table-elements/Table.js';
+import './ProductContainer.css';
 
 function ProductContainer() {
 
@@ -14,14 +15,17 @@ function ProductContainer() {
     }
 
   return (
-    <div>
-        <ManageProductsHeader/>
-        {renderNewProductButton()}
-        <Table 
-            isAddingNew={ isAddingNew }
-            handleClickAddNew={ handleClickAddNew }
-        />
-    </div>
+    <>
+    <section className="productContainerHeader">
+      <ManageProductsHeader/>
+      {renderNewProductButton()}
+    </section>
+
+    <Table 
+      isAddingNew={ isAddingNew }
+      handleClickAddNew={ handleClickAddNew }
+    />
+    </>
   );
 }
 

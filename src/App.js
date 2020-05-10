@@ -14,19 +14,6 @@ import ProductContainer from './admin-side/products/ProductContainer.js'
 
 function App() {
 
-  // const [products, setProducts] = useState([]);
-
-  // const getProducts = () => {
-  //     fetch(`http://localhost:8000/api/products`)
-  //     .then(response => response.json())
-  //     .then(productsList => setProducts(productsList))
-  //     .catch(err => console.error)
-  // }
-
-  // useEffect( () => {
-  //     getProducts()
-  // }, [])
-
   return (
     <Switch>
       <Route exact path="/" component={ Homepage } />
@@ -36,7 +23,7 @@ function App() {
       }/> */}
 
       {/* <Route exact path="/admin" render={ () => 
-        <AdminPortal products={ products } />
+        <AdminPortal/>
       }/> */}
 
       <Route exact path="/admin/products" render={ () => 

@@ -14,6 +14,13 @@ body {
   background-color: var(--OffWhite);
   font-family: 'Jost', sans-serif;
   margin: 1%;
+
+}
+
+div#root{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 header {
@@ -22,6 +29,7 @@ header {
 
 h1{
   color:var(--LightBlue);
+  font-size: 2rem;
 }
 
 ul {
