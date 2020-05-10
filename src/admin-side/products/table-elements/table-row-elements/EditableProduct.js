@@ -5,31 +5,11 @@ import './EditableProduct.css';
 
 function EditableProduct({product, handleUpdatedProduct, toggleEditSetting, editItem}) {
 
-  // state -> object with changes which is sent as a json in the post request.
-
   const [productToUpdate, setProductToUpdate] = useState(product)
 
   const handleChange = (field, event) => {
       setProductToUpdate({ ...productToUpdate, [field]: event.target.value })
   }
-
-  // const sendItOrNot = (productToUpdate) => {
-  //   if (!productToUpdate) {
-  //     return
-  //   }
-  //   else {
-  //     handleUpdatedProduct(productToUpdate)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   sendItOrNot(productToUpdate)
-  // }, [productToUpdate])
-
-  // const clickSave = () => {
-  //   editItem(productToUpdate)
-  //   // toggleEditSetting(product)
-  // }
 
   const individualModeButtons = () => {
         return (
