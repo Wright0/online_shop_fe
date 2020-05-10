@@ -43,6 +43,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
       body: JSON.stringify(newItem)
     })
     .then(addNewProductToProductsArray(newItem))
+    .catch(err => alert(err));
   }
 
   const changeProductInProductsArray = (itemBeingChanged) => {
@@ -68,7 +69,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
       },
       body: JSON.stringify(item)
     })
-    .then( () => changeProductInProductsArray(item))
+    .catch(err => alert(err));
   }
 
   const newItem = () => {
