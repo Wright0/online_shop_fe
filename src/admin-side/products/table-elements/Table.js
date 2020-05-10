@@ -3,7 +3,17 @@ import TableRows from './table-row-elements/TableRow.js';
 import NewProduct from './table-row-elements/NewProduct.js'
 import './Table.css';
 
-function Table( {isAddingNew, handleClickAddNew, saveNewItem} ) {
+function Table( {isAddingNew, handleClickAddNew, isEditingAll} ) {
+
+  const saveNewItem = (newItem) => {
+    fetch(`http://localhost:8000/api/products/`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(newItem)
+    }).then((response) => console.log(response))
+  }
 
   const newItem = () => {
     if (isAddingNew) return <NewProduct handleClickAddNew={handleClickAddNew} saveNewItem={saveNewItem}/>
@@ -26,6 +36,7 @@ function Table( {isAddingNew, handleClickAddNew, saveNewItem} ) {
         <tbody>
         {newItem()}
         <TableRows
+          isEditingAll={isEditingAll}
         />
         </tbody>
       

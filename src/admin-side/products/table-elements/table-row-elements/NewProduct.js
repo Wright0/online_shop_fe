@@ -21,6 +21,10 @@ function NewProduct({ saveNewItem, handleClickAddNew }){
         saveNewItem(newItem); 
         handleClickAddNew();
     }
+
+    const individualModeButton = () => {
+
+    }
     
     return (
         <tr key="new">
@@ -30,7 +34,10 @@ function NewProduct({ saveNewItem, handleClickAddNew }){
             <td><textarea onBlur={(event) => handleNewItemInput("description", event)} defaultValue={newItem.description}/></td>
             <td><input type="number" onBlur={(event) => handleNewItemInput("price", event)} defaultValue={newItem.price}/></td>
             <td><input type="number" onBlur={(event) => handleNewItemInput("stock_quantity", event)} defaultValue={newItem.stock_quantity}/></td>
-            <td><button className="submit" onClick={submitNewProduct}>Submit</button></td>
+            <td>
+                <button className="submit" onClick={submitNewProduct}>Submit</button>
+                <p className="cancel" onClick={() => handleClickAddNew()}>Cancel</p>
+            </td>
         </tr>
         
     )

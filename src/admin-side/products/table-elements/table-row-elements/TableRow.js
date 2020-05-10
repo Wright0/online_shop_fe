@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import EditableProduct from './EditableProduct.js'
 import Product from './Product.js'
 
-function TableRows() {
+function TableRows({isEditingAll}) {
 
     const [products, setProducts] = useState([]);
 
@@ -38,7 +38,14 @@ function TableRows() {
 
     const renderTableRows = products.map(product => {
         if (product.isInEditMode) {
-            return <EditableProduct key={product.id} product={product} toggleEditSetting={toggleEditSetting}/>
+            return (
+                <EditableProduct 
+                    key={product.id} 
+                    product={product} 
+                    toggleEditSetting={toggleEditSetting}
+                    isEditingAll={isEditingAll}
+                />
+            )
         } else {
             return <Product key={product.id} product={product} toggleEditSetting={toggleEditSetting}/>
         } 

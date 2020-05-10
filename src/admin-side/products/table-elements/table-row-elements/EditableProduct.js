@@ -3,7 +3,7 @@ import { isEqual } from "lodash/fp";
 
 import './EditableProduct.css'; 
 
-function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting }) {
+function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting, isEditingAll }) {
 
   //   // state -> object with changes which is sent as a json in the post request.
 
@@ -33,6 +33,17 @@ function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting }) {
     sendItOrNot(productToUpdate)
   }, [productToUpdate])
 
+  const individualModeButtons = () => {
+    if (!isEditingAll){
+        return (
+        <td>
+          <button className="save">Save</button>
+          <p className="cancel" onClick={() => toggleEditSetting(product)}>Cancel</p> 
+        </td>
+        ) 
+    }
+}
+
   return (
       <tr key={product.id} className="editable-row">
         <td><input type="number" className="id" disabled defaultValue={product.id}/></td>
@@ -41,10 +52,7 @@ function EditableProduct({ product, handleUpdatedProduct, toggleEditSetting }) {
         <td><textarea onBlur={(event) => handleChange("description", event)} defaultValue={product.description}/></td>
         <td><input type="number" onBlur={(event) => handleChange("price", event)} defaultValue={product.price}/></td>
         <td><input type="number" onBlur={(event) => handleChange("stock_quantity", event)} defaultValue={product.stock_quantity}/></td>
-        <td>
-          <button className="cancel" onClick={() => toggleEditSetting(product)}>Cancel</button> 
-          <button className="save">Save</button>
-        </td>
+        {individualModeButtons()}
       </tr>
     
   );

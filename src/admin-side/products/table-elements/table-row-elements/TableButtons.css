@@ -18,6 +18,12 @@ button.edit {
     background-color: blue;
 }
 
-button.cancel{
+p.cancel{
+    cursor: pointer;
+    color: #FB3640;
+}
+
+p.cancel:hover{
+    color: var(--OffWhite);
     background-color: #FB3640;
 }

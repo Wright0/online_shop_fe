@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
 import ManageProductsHeader from './ManageProductsHeader.js';
 import AddProductButton from './button-elements/AddProductButton.js'
+import EditAllButton from './button-elements/EditAllButton.js';
 import Table from './table-elements/Table.js';
 
 import { isEqual } from "lodash/fp";
 
 function ProductContainer() {
 
-    const [isAddingNew, setIsAddingNew] = useState(true)
+    const [isAddingNew, setIsAddingNew] = useState(false)
+    const [isEditingAll, setIsEditingAll] = useState(false)
 
     const [changesToBeSubmitted, setchangesToBeSubmitted] = useState([])
-
-    const saveNewItem = (newItem) => {
-        fetch(`http://localhost:8000/api/products/`, {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json;charset=utf-8"
-          },
-          body: JSON.stringify(newItem)
-        }).then((response) => console.log(response))
-    }
     
     const handleClickAddNew = () => setIsAddingNew(!isAddingNew);
+
+    const renderNewProductButton = () => {
+      if (!isAddingNew) return <AddProductButton handleClickAddNew={handleClickAddNew}/>
+    }
     
 
 //       //BUNDLING AND SENDING OF CHANGES TO DATABASE FOR EDIT MODE (currently a mess)
@@ -64,15 +60,15 @@ function ProductContainer() {
 //     // return;
 //   }
 
-
   return (
     <div>
         <ManageProductsHeader/>
-        <AddProductButton handleClickAddNew={handleClickAddNew}/>
+        {renderNewProductButton()}
+        <EditAllButton/>
         <Table 
             isAddingNew={ isAddingNew }
             handleClickAddNew={ handleClickAddNew }
-            saveNewItem={saveNewItem}
+            isEditingAll={ isEditingAll }
         />
     </div>
   );

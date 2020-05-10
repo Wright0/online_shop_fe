@@ -1,14 +1,14 @@
 import React from 'react';
-import './AddProductButton.css';
+import './Buttons.css';
 
-function EditButtons({handleClickAddNew}) {
+function AddProductButtons({handleClickAddNew}) {
 
   return (
     <button className="new-product" onClick={handleClickAddNew}>New</button>
   );
 }
 
-export default EditButtons;
+export default AddProductButtons;
 
 
 
