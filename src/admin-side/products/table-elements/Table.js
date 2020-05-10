@@ -25,7 +25,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
     getProducts()
   }, [])
 
-  //The problem with this is that you don't have the ID yet. I've set it to be pending when it loads and when you refresh, it'll grab the ID
+  //The problem with this is that you don't have the ID yet. I've set it to be "pending" when it loads and when you refresh, it'll grab the ID
   const addNewProductToProductsArray = (newItem) => {
     newItem.isInEditMode = false;
     newItem.id = "pending"
@@ -69,6 +69,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
       },
       body: JSON.stringify(item)
     })
+    .then(() => changeProductInProductsArray(item))
     .catch(err => alert(err));
   }
 

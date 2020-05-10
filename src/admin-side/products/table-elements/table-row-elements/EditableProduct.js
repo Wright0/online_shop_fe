@@ -3,7 +3,7 @@ import { isEqual } from "lodash/fp";
 
 import './EditableProduct.css'; 
 
-function EditableProduct({product, handleUpdatedProduct, toggleEditSetting, editItem}) {
+function EditableProduct({product, toggleEditSetting, editItem}) {
 
   const [productToUpdate, setProductToUpdate] = useState(product)
 
