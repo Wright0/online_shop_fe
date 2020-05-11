@@ -23,7 +23,7 @@ function EditableProduct({product, toggleEditSetting, editItem}) {
   return (
       <tr key={product.id} className="editable-row">
         <td><input type="number" className="id" disabled defaultValue={product.id}/></td>
-        <td><input type="text" onBlur={(event) => handleChange("product_url", event)} defaultValue={product.image_url}/></td>
+        <td><input type="text" onBlur={(event) => handleChange("image_url", event)} defaultValue={product.image_url}/></td>
         <td><input type="text" onBlur={(event) => handleChange("product_name", event)} defaultValue={product.product_name}/></td>
         <td>
           <select>
