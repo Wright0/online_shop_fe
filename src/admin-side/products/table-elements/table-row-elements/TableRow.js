@@ -2,7 +2,7 @@ import React from 'react';
 import EditableProduct from './EditableProduct.js'
 import Product from './Product.js'
 
-function TableRows({products, setProducts, editItem}) {
+function TableRows({products, setProducts, editItem, deleteItem}) {
 
     const toggleEditSetting = (rowProduct) => {
         const newProductList = products.map(product => {
@@ -26,7 +26,14 @@ function TableRows({products, setProducts, editItem}) {
                 />
             )
         } else {
-            return <Product key={product.id} product={product} toggleEditSetting={toggleEditSetting}/>
+            return (
+                <Product 
+                    key={product.id} 
+                    product={product} 
+                    toggleEditSetting={toggleEditSetting} 
+                    deleteItem={deleteItem}
+                />
+            ) 
         } 
       })
 

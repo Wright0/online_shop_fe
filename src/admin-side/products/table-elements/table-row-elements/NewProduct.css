@@ -1,15 +1,15 @@
-.editable-row td {
+.new-item td {
     text-align: center;
     background-color:#f0f0f5;
     min-height:5rem;
 }
 
-.editable-row td > input.id {
+.new-item td > input.id {
     border:none;
 }
 
-.editable-row td > input,
-.editable-row td > select {
+.new-item td > input,
+.new-item td > select {
     font-family: 'Jost', sans-serif;
     font-size: 1rem;
     text-align: center;
@@ -21,8 +21,8 @@
     border: none
 }
 
-.editable-row td > input:focus,
-.editable-row td > select:focus {
+.new-item td > input:focus,
+.new-item td > select:focus {
     outline-color: var(--LightBlue);
     background-color: #dedee6;
 }

@@ -1,6 +1,8 @@
 button.new-product{
-    width: 4rem;
-    height:2rem;
+    font-family:'Jost', sans-serif;
+    font-size:1rem;
+    width: 5rem;
+    height:2.5rem;
     color: var(--OffWhite);
     background-color: var(--LightBlue);
     cursor: pointer;

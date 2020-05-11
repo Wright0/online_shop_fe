@@ -1,12 +1,14 @@
 button.submit,
 button.save,
 button.edit,
-button.cancel {
+button.cancel,
+button.delete {
     cursor:pointer;
     height: 25px;
     min-width: 60px;
     font-size: 0.8rem;
-    color: var(--OffWhite)
+    color: var(--OffWhite);
+    margin:5%;
 }
 
 button.submit,
@@ -24,15 +26,39 @@ button.edit {
 }
 
 button.edit:hover{
-    background-color: var(--DarkBlue);
+    background-color: #5a8cba;
 }
 
-p.cancel{
+button.delete{
+    color:var(--OffWhite);
+    background-color: #b2272e;
+}
+
+button.delete:hover{
+    color:var(--OffWhite);
+    background-color:#ff2832;
+}
+
+p.cancel
+{
     cursor: pointer;
-    color: #FB3640;
+    color: #b2272e;
 }
 
 p.cancel:hover{
     color: var(--OffWhite);
-    background-color: #FB3640;
+    background-color: #ff2832;
+}
+
+td.edit-buttons p {
+    margin: 5% 0% 0% 0%;
+    padding: 5%;
+}
+
+td.edit-buttons {
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

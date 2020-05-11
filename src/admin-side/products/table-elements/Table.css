@@ -1,30 +1,43 @@
-input,
-textarea,
-.products-table > tbody > tr {
-    background-color:var(--OffWhite);
-    text-align: center;
-    color:var(--RaisinBlack);
-    font-family: 'Jost', sans-serif;
-    font-size: 1rem;
-}
-
 .products-table {
     width:95%;
     border-collapse: collapse;
+    table-layout:fixed;
     margin: auto;
 }
 
 .products-table > thead > tr > th {
-    color:var(--LightBlue);
+    padding:5px;
     height: 3rem;
+    color:var(--LightBlue);
     border-bottom: 2px solid var(--RaisinBlack);
 }
 
-.products-table > tbody > tr > td {
-    max-width:28rem;
-    text-align: center;
-    border-bottom: 1px solid var(--LightGrey);
-    height: 1.5rem;
-    padding:0.5rem;
+/* Product ID, Price, Stock amount */
+.products-table > thead > tr > th:nth-child(1),
+.products-table > thead > tr > th:nth-child(6),
+.products-table > thead > tr > th:nth-child(7) {
+    width: 7%;
+}
+/* Product URL */
+.products-table > thead > tr > th:nth-child(2) {
+    width: 14%;
+}
+
+/* Name */
+.products-table > thead > tr > th:nth-child(3) {
+    width: 10%;
+}
+
+/* Category */
+.products-table > thead > tr > th:nth-child(4) {
+    width: 10%;
+}
+/* Description */
+.products-table > thead > tr > th:nth-child(5) {
+    width: 35%;
+}
+/* button section */
+.products-table > thead > tr > th:nth-child(8) {
+    width: 10%;
 }
 
