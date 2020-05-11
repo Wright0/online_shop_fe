@@ -2,7 +2,7 @@ import React from 'react';
 import './Product.css'; 
 import './TableButtons.css';
 
-function Product({ product, toggleEditSetting }) {
+function Product({ product, toggleEditSetting, deleteItem }) {
 
   return (
       <tr key={product.id} className="viewable-product">
@@ -15,7 +15,7 @@ function Product({ product, toggleEditSetting }) {
         <td>{product.stock_quantity}</td>
         <td>
           <button className="edit" onClick={() => toggleEditSetting(product)} >Edit</button>
-          <button className="delete">Delete</button>
+          <button className="delete" onClick={() => deleteItem(product.id)}>Delete</button>
         </td>
       </tr>
   );

@@ -74,6 +74,19 @@ function Table({ isAddingNew, handleClickAddNew }) {
     .catch(err => alert(err));
   }
 
+  const deleteProductInProductsArray = (deletedItemID) => {    
+    const productsCopy = products.filter(product => product.id != deletedItemID)
+    setProducts(productsCopy);
+  }
+
+  const deleteItem = (itemId) => {
+    fetch(`http://localhost:8000/api/products/${itemId}/`, {
+      method:'DELETE'
+    })
+    .then(() => deleteProductInProductsArray(itemId))
+    .catch(err => alert(err));
+  }
+
   const newItem = () => {
     if (isAddingNew) return <NewProduct handleClickAddNew={handleClickAddNew} saveNewItem={saveNewItem}/>
   }
@@ -98,6 +111,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
           products={products}
           setProducts={setProducts}
           editItem={editItem}
+          deleteItem={deleteItem}
         />
         </tbody>
       
