@@ -2,9 +2,7 @@ tr.viewable-product td {
     background-color:var(--OffWhite);
     text-align: center;
     color:var(--RaisinBlack);
-}
 
-.viewable-product td {
     padding:10px;
     word-wrap:break-word;
     border-bottom: 1px solid var(--LightGrey);

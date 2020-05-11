@@ -3,8 +3,21 @@
     width: 100%;
     height: 100%;
     border: solid 1px #737373;
-}
+} */
 
 .products-table > tbody > tr > td > input.id {
     border:none;
+}
+
+/* tr.editable-product td {
+    background-color:var(--OffWhite);
+    text-align: center;
+    color:var(--RaisinBlack);
 } */
+
+tr.editable-product td {
+    /* padding:10px; */
+    /* word-wrap:break-word; */
+    border:orange solid 1px;
+    /* border-bottom: 1px solid var(--LightGrey); */
+}

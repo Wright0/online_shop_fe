@@ -14,8 +14,8 @@
 
 /* Product ID, Price, Stock amount */
 .products-table > thead > tr > th:nth-child(1),
-.products-table > thead > tr > th:nth-child(5),
-.products-table > thead > tr > th:nth-child(6) {
+.products-table > thead > tr > th:nth-child(6),
+.products-table > thead > tr > th:nth-child(7) {
     width: 7%;
 }
 /* Product URL */
@@ -25,15 +25,19 @@
 
 /* Name */
 .products-table > thead > tr > th:nth-child(3) {
+    width: 10%;
+}
+
+/* Category */
+.products-table > thead > tr > th:nth-child(4) {
     width: 20%;
 }
 
-/* Description */
-.products-table > thead > tr > th:nth-child(4) {
+.products-table > thead > tr > th:nth-child(5) {
     width: 35%;
 }
 
-.products-table > thead > tr > th:nth-child(7) {
+.products-table > thead > tr > th:nth-child(8) {
     width: 10%;
 }
 

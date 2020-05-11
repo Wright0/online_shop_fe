@@ -18,13 +18,14 @@ function EditableProduct({product, toggleEditSetting, editItem}) {
           <p className="cancel" onClick={() => toggleEditSetting(product)}>Cancel</p> 
         </td>
         )
-}
+  }
 
   return (
       <tr key={product.id} className="editable-row">
         <td><input type="number" className="id" disabled defaultValue={product.id}/></td>
         <td><textarea onBlur={(event) => handleChange("product_url", event)} defaultValue={product.image_url}/></td>
         <td><textarea onBlur={(event) => handleChange("product_name", event)} defaultValue={product.product_name}/></td>
+        <td><textarea onBlur={(event) => handleChange("category", event)} defaultValue="a category"/></td>
         <td><textarea onBlur={(event) => handleChange("description", event)} defaultValue={product.description}/></td>
         <td><input type="number" onBlur={(event) => handleChange("price", event)} defaultValue={product.price}/></td>
         <td><input type="number" onBlur={(event) => handleChange("stock_quantity", event)} defaultValue={product.stock_quantity}/></td>
