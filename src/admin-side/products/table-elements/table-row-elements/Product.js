@@ -13,7 +13,10 @@ function Product({ product, toggleEditSetting }) {
         <td>{product.description}</td>
         <td>{product.price}</td>
         <td>{product.stock_quantity}</td>
-        <td><button className="edit" onClick={() => toggleEditSetting(product)} >Edit</button></td>
+        <td>
+          <button className="edit" onClick={() => toggleEditSetting(product)} >Edit</button>
+          <button className="delete">Delete</button>
+        </td>
       </tr>
   );
 }
