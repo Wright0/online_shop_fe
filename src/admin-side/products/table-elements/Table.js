@@ -26,8 +26,21 @@ function Table({ isAddingNew, handleClickAddNew }) {
     getProducts()
   }, [])
 
+  const checkIfDecimalsNeeded = (newItemPrice) => {
+    return !newItemPrice.includes(".")
+  }
+
+  const addDecimals = (newItemPrice) => {
+      return `${newItemPrice}.00`
+  }
+
   const addNewProductToProductsArray = (newItem) => {
     newItem.isInEditMode = false;
+
+    if (checkIfDecimalsNeeded(newItem.price)){
+      newItem.price = addDecimals(newItem.price);
+    }
+
     const productsWithNewAddition = [...products];
     productsWithNewAddition.push(newItem);
     setProducts(productsWithNewAddition);

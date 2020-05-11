@@ -4,13 +4,10 @@ import './App.css';
 
 import Homepage from './Homepage.js';
 import Error404 from './Error404.js';
-import ProductContainer from './admin-side/products/ProductContainer.js'
-
-// import CustomerContainer from './customer-side/CustomerContainer.js';
-// import AdminPortal from './admin-side/AdminPortal.js';
-// import ViewProductContainer from './admin-side/products/button-elements/ViewProductContainer.js'
-
-
+import ProductContainer from './admin-side/products/ProductContainer.js';
+import AdminPortal from './admin-side/AdminPortal.js';
+import OrderDeliveryContainer from './admin-side/orders-deliveries/OrderDeliveryContainer.js';
+import CustomerContainer from './customer-side/CustomerContainer.js';
 
 function App() {
 
@@ -18,21 +15,21 @@ function App() {
     <Switch>
       <Route exact path="/" component={ Homepage } />
 
-      {/* <Route exact path="/shop" render={ () => 
-          <CustomerContainer products={ products } />
-      }/> */}
+      <Route exact path="/shop" render={ () => 
+          <CustomerContainer />
+      }/>
 
-      {/* <Route exact path="/admin" render={ () => 
+      <Route exact path="/admin" render={ () => 
         <AdminPortal/>
-      }/> */}
+      }/>
 
       <Route exact path="/admin/products" render={ () => 
         <ProductContainer/>
       }/>
 
-      {/* <Route exact path="/admin/orders-and-deliveries" render={ () => 
-        <OrderDeliveryContainer products={ products } />
-      }/> */}
+      <Route exact path="/admin/orders-and-deliveries" render={ () => 
+        <OrderDeliveryContainer />
+      }/>
 
       <Route render={() => <Error404/>} />
 

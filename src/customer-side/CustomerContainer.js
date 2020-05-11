@@ -9,17 +9,7 @@ function CustomerContainer({ products }) {
 console.log(products.length)
 
   return (
-        <div>
-          <header>I am the customer nav</header>
-          <Switch>
-            <Route exact path="/shop" render={ () => 
-              <Categories products={ products } />} />
-
-            <Route path="/shop/:productId" render={ () => 
-              <ProductContainer products={ products } />}
-            />
-          </Switch>
-        </div>
+        <h1>Customer container</h1>
   );
 }
 
