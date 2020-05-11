@@ -10,7 +10,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
 
   const giveProductsEditableModeAtGET = (productsList) => {
       const newProducts = productsList.map(product => {
-          return {...product, ["isInEditMode"]: false}}
+          return {...product, "isInEditMode": false}}
           )
       setProducts(newProducts);
    }
@@ -89,7 +89,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
   }
 
   const deleteProductInProductsArray = (deletedItemID) => {    
-    const productsCopy = products.filter(product => product.id != deletedItemID)
+    const productsCopy = products.filter(product => product.id !== deletedItemID)
     setProducts(productsCopy);
   }
 

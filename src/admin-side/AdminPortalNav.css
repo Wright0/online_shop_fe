@@ -1,0 +1,39 @@
+div.admin-nav {
+    display:grid;
+    grid-template-columns: 5fr 1fr;
+
+    list-style: none;
+    padding: 0;
+}
+
+div.admin-nav > ul {
+    display:flex;
+    flex-direction: row;
+ 
+    list-style: none;
+    padding: 0;
+    border-bottom: var(--DarkBlue) 1px solid;
+}
+
+div.admin-nav li{
+    margin: 0% 4% 0% 1%;
+}
+
+div.admin-nav a{
+    color:var(--DarkBlue);
+    text-decoration: none;
+}
+
+div.admin-nav a:hover{
+    padding: 5px;
+    background-color:var(--DarkBlue);
+    color:var(--OffWhite);
+    text-decoration: none;
+}
+
+div.admin-nav p.login{
+    margin: 0% 10%;
+    justify-self:end;
+    align-self:center;
+    
+}

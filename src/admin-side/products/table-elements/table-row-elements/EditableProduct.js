@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { isEqual } from "lodash/fp";
+import React, { useState } from 'react';
 
 import './EditableProduct.css'; 
 
