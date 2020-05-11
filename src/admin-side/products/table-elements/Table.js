@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TableRows from './table-row-elements/TableRow.js';
 import NewProduct from './table-row-elements/NewProduct.js'
+import NoProducts from './table-row-elements/NoProducts.js'
 import './Table.css';
 
 function Table({ isAddingNew, handleClickAddNew }) {
@@ -91,7 +92,12 @@ function Table({ isAddingNew, handleClickAddNew }) {
     if (isAddingNew) return <NewProduct handleClickAddNew={handleClickAddNew} saveNewItem={saveNewItem}/>
   }
 
+  const noItems = () => {
+    if (products.length === 0) return <NoProducts/>
+  }
+
   return (
+    <>
     <table className="products-table">
         <thead>
           <tr>
@@ -114,9 +120,10 @@ function Table({ isAddingNew, handleClickAddNew }) {
           deleteItem={deleteItem}
         />
         </tbody>
-      
-        
     </table>
+
+    {noItems()}
+    </>
   );
 }
 
