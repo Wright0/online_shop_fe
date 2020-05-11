@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './NewProduct.css';
 import './TableButtons.css';
 
 function NewProduct({ saveNewItem, handleClickAddNew }){
@@ -23,11 +24,18 @@ function NewProduct({ saveNewItem, handleClickAddNew }){
     }
     
     return (
-        <tr key="new">
+        <tr key="new" className="new-item">
             <td></td>
-            <td><textarea onBlur={(event) => handleNewItemInput("product_url", event)} defaultValue={newItem.image_url}/></td>
-            <td><textarea onBlur={(event) => handleNewItemInput("product_name", event)} defaultValue={newItem.product_name}/></td>
-            <td><textarea onBlur={(event) => handleNewItemInput("description", event)} defaultValue={newItem.description}/></td>
+            <td><input type="text" onBlur={(event) => handleNewItemInput("product_url", event)} defaultValue={newItem.image_url}/></td>
+            <td><input type="text" onBlur={(event) => handleNewItemInput("product_name", event)} defaultValue={newItem.product_name}/></td>
+            <td>
+                <select>
+                    <option>Hello</option>
+                    <option>Hello2</option>
+                </select>
+                {/* <textarea onBlur={(event) => handleChange("category", event)} defaultValue="a category"/> */}
+            </td>
+            <td><input type="text" onBlur={(event) => handleNewItemInput("description", event)} defaultValue={newItem.description}/></td>
             <td><input type="number" onBlur={(event) => handleNewItemInput("price", event)} defaultValue={newItem.price}/></td>
             <td><input type="number" onBlur={(event) => handleNewItemInput("stock_quantity", event)} defaultValue={newItem.stock_quantity}/></td>
             <td>

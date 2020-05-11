@@ -36,3 +36,16 @@ p.cancel:hover{
     color: var(--OffWhite);
     background-color: #FB3640;
 }
+
+td.edit-buttons p {
+    margin: 5% 0% 0% 0%;
+    padding: 5%;
+}
+
+td.edit-buttons {
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
