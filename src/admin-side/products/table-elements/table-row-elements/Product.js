@@ -9,7 +9,7 @@ function Product({ product, toggleEditSetting, deleteItem }) {
         <td>{product.id}</td>
         <td>{product.image_url}</td>
         <td>{product.product_name}</td>
-        <td>Whta happened here</td>
+        <td>{product.category}</td>
         <td>{product.description}</td>
         <td>{product.price}</td>
         <td>{product.stock_quantity}</td>

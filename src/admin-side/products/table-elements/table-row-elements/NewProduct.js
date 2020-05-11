@@ -6,6 +6,7 @@ function NewProduct({ saveNewItem, handleClickAddNew }){
 
     const defaultNewItem = {
         "product_name": "Name",
+        "category":"Category",
         "description": "Description",
         "image_url": "Item URL",
         "price": 0,
@@ -26,18 +27,19 @@ function NewProduct({ saveNewItem, handleClickAddNew }){
     return (
         <tr key="new" className="new-item">
             <td></td>
-            <td><input type="text" onBlur={(event) => handleNewItemInput("product_url", event)} defaultValue={newItem.image_url}/></td>
-            <td><input type="text" onBlur={(event) => handleNewItemInput("product_name", event)} defaultValue={newItem.product_name}/></td>
+            <td><input type="text" onBlur={(event) => handleNewItemInput("product_url", event)} placeholder="Image URL"/></td>
+            <td><input type="text" onBlur={(event) => handleNewItemInput("product_name", event)} placeholder={newItem.product_name}/></td>
             <td>
-                <select>
-                    <option>Hello</option>
-                    <option>Hello2</option>
+                <select onBlur={(event) => handleNewItemInput("category", event)}>
+                    <option disabled selected>Select a Category</option>
+                    <option>fruits</option>
+                    <option>vegetables</option>
                 </select>
-                {/* <textarea onBlur={(event) => handleChange("category", event)} defaultValue="a category"/> */}
+                <input type="text" placeholder="New Category"></input>
             </td>
-            <td><input type="text" onBlur={(event) => handleNewItemInput("description", event)} defaultValue={newItem.description}/></td>
-            <td><input type="number" onBlur={(event) => handleNewItemInput("price", event)} defaultValue={newItem.price}/></td>
-            <td><input type="number" onBlur={(event) => handleNewItemInput("stock_quantity", event)} defaultValue={newItem.stock_quantity}/></td>
+            <td><input type="text" onBlur={(event) => handleNewItemInput("description", event)} placeholder="description"/></td>
+            <td><input type="number" onBlur={(event) => handleNewItemInput("price", event)} placeholder="0"/></td>
+            <td><input type="number" onBlur={(event) => handleNewItemInput("stock_quantity", event)} placeholder="0"/></td>
             <td>
                 <button className="submit" onClick={submitNewProduct}>Submit</button>
                 <p className="cancel" onClick={() => handleClickAddNew()}>Cancel</p>
