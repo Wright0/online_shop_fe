@@ -17,17 +17,11 @@ body {
 
 }
 
-div#root{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 header {
   text-align: center;
 }
 
-h1{
+h1 {
   color:var(--LightBlue);
   font-size: 2rem;
 }

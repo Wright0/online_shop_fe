@@ -1,5 +1,5 @@
-.products-table > tbody > tr > td > input,
-.products-table > tbody.edit-mode > tr > td > textarea {
+/* .products-table > tbody > tr > td > input,
+.products-table > tbody > tr > td > textarea {
     width: 100%;
     height: 100%;
     border: solid 1px #737373;
@@ -7,4 +7,4 @@
 
 .products-table > tbody > tr > td > input.id {
     border:none;
-}
+} */
