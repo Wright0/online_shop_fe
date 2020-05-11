@@ -21,10 +21,6 @@ function NewProduct({ saveNewItem, handleClickAddNew }){
         saveNewItem(newItem); 
         handleClickAddNew();
     }
-
-    const individualModeButton = () => {
-
-    }
     
     return (
         <tr key="new">

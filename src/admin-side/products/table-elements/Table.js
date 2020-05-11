@@ -42,6 +42,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
       },
       body: JSON.stringify(newItem)
     })
+    .then((response) => console.log(response))
     .then(addNewProductToProductsArray(newItem))
     .catch(err => alert(err));
   }

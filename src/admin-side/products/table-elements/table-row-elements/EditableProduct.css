@@ -1,23 +1,41 @@
-/* .products-table > tbody > tr > td > input,
-.products-table > tbody > tr > td > textarea {
-    width: 100%;
-    height: 100%;
-    border: solid 1px #737373;
-} */
+.editable-row td {
+    text-align: center;
+    background-color:#f0f0f5;
+    min-height:5rem;
+}
 
-.products-table > tbody > tr > td > input.id {
+.editable-row td > input.id {
     border:none;
 }
 
-/* tr.editable-product td {
-    background-color:var(--OffWhite);
+.editable-row td > input,
+.editable-row td > select {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
     text-align: center;
     color:var(--RaisinBlack);
-} */
 
-tr.editable-product td {
-    /* padding:10px; */
-    /* word-wrap:break-word; */
-    border:orange solid 1px;
-    /* border-bottom: 1px solid var(--LightGrey); */
+    background-color: #f0f0f5;
+    height:4rem;
+    width:90%;
+    border: none
+}
+
+.editable-row td > input:focus,
+.editable-row td > select:focus {
+    outline-color: var(--LightBlue);
+    background-color: #dedee6;
+}
+
+td.edit-buttons p {
+    margin:10% 0% 0% 0%;
+    padding: 4%;
+}
+
+td.edit-buttons {
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

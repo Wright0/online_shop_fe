@@ -30,13 +30,13 @@
 
 /* Category */
 .products-table > thead > tr > th:nth-child(4) {
-    width: 20%;
+    width: 10%;
 }
-
+/* Description */
 .products-table > thead > tr > th:nth-child(5) {
     width: 35%;
 }
-
+/* button section */
 .products-table > thead > tr > th:nth-child(8) {
     width: 10%;
 }
