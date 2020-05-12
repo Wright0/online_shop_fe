@@ -1,9 +1,9 @@
 import React from 'react';
-import './CustomerContainer.css'
+import './ViewProductsContainer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 
-function CustomerContainer() {
+function ViewProductsContainer() {
 
   return (
     <>
@@ -70,16 +70,4 @@ function CustomerContainer() {
   );
 }
 
-export default CustomerContainer;
-
-//                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-//                   <a href="url.com">More information >></a>
-
-//                   <section>
-//                     <p>22.95</p>
-//                     <input type="number" default value="1"/>
-//                     <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-//                   </section> 
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
+export default ViewProductsContainer;

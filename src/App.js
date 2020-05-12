@@ -4,10 +4,14 @@ import './App.css';
 
 import Homepage from './Homepage.js';
 import Error404 from './Error404.js';
+
 import ProductContainer from './admin-side/products/ProductContainer.js';
 import AdminPortal from './admin-side/AdminPortal.js';
 import OrderDeliveryContainer from './admin-side/orders-deliveries/OrderDeliveryContainer.js';
-import CustomerContainer from './customer-side/CustomerContainer.js';
+
+import CustomerProductContainer from './customer-side/CustomerProductContainer.js'
+import ViewProductsContainer from './customer-side/ViewProductsContainer.js';
+
 import AdminPortalNav from './admin-side/AdminPortalNav.js'
 import CustomerNav from './customer-side/CustomerNav.js';
 
@@ -25,21 +29,21 @@ function App() {
       <Route exact path="/shop" render={ () => 
         <>
           <CustomerNav/>
-          <CustomerContainer/>
+          <ViewProductsContainer/>
         </>
       }/>
 
       {/* <Route exact path="/shop/:category" render={ () => 
         <>
           <CustomerNav/>
-          <ProductContainer/>
+          <CustomerProductContainer/>
         </>
       }/> */}
 
       <Route exact path="/shop/:category/:id" render={ () => 
         <>
           <CustomerNav/>
-          <ProductContainer/>
+          <CustomerProductContainer/>
         </>
       }/>
 

@@ -1,0 +1,51 @@
+article.product-info{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+article.product-info div.product-image{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 2rem;
+}
+
+div.product-image img {
+    width:100%;
+}
+
+article.product-info section {
+    max-width: 70%;
+    margin:2rem;
+}
+
+div.order-info-buttons{
+    width:55%;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+div.order-info-buttons input,
+div.order-info-buttons button{
+    border: 1px solid var(--LightBlue);
+    color:var(--LightBlue);
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+    height: 2.5rem;
+    align-self: center;
+    text-align: center;
+}
+div.order-info-buttons input{
+    width: 2rem;
+}
+
+/* This removes the arrows */
+div.order-info-buttons input[type='number']::-webkit-inner-spin-button, 
+div.order-info-buttons input[type='number']::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
