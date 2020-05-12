@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 
@@ -7,7 +8,7 @@ function ProductCard({product}) {
     return (
         <article>
             <h3>{product.product_name}</h3>
-            <img src={product.image_url} alt={product.product_name}/>
+            <Link to={`/shop/${product.category}/${product.id}`}><img src={product.image_url} alt={product.product_name}/></Link>
             <p>£{product.price}</p>
             <section className="add-to-cart">
             <input type="number" defaultValue="1"/>

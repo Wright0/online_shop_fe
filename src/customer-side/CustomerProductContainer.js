@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 import './CustomerProductContainer.css';
@@ -7,19 +7,24 @@ import './CustomerProductContainer.css';
 
 function ViewProductsContainer() {
 
-    // This is for when we implement the GET for the product
-    // let { productId } = useParams()
+    const urlParams = useParams()
+    const history = useHistory();
 
-    const [product, setProduct] = useState(
-      {"product_name": "Banana",
-      "category": "fruit",
-      "description": "It is yellow and sometimes has a nodemon, dude",
-      "image_url": "google.com",
-      "price": "3.00",
-      "stock_quantity": "10"}
-    )
+    const [product, setProduct] = useState({})
+
+    const getProduct = () => {
+      fetch(`http://localhost:8000/api/products/${urlParams.id}`)
+      .then(response => response.json())
+      .then(product => setProduct(product))
+      .catch(err => console.error)
+    }
+
+    useEffect(() => {
+      getProduct()
+    }, [])
 
   return (
+    <>
     <article className="product-info">
       <div className="product-image">
         <img src="https://picsum.photos/450/300" alt="product"/>
@@ -32,13 +37,15 @@ function ViewProductsContainer() {
         <div className="order-info-buttons">
           <p>£{product.price}</p>
           <p>{product.stock_quantity} items left</p>
-          <input type="number" default value="1"/>
+          <input type="number" defaultValue="1"/>
           <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
         </div>
         <p>Before you order, please read the delivery information.</p>
       </section>
-
     </article>
+
+    <p className="product-page-back" onClick={() => history.goBack()}> (ICON) Go back</p>
+    </>
     
   );
 }
