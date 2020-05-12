@@ -1,8 +1,24 @@
-section.products > div{
+section.products {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: center;
+}
+
+section.products article:hover {
+    border: solid 3px var(--LightGrey);
+    cursor: pointer;
+}
+
+/* Product card containers */
+section.products article {
+    width: 17vw;
+    min-width: 250px;
+
+    border: solid 1px var(--LightGrey);
+    border-radius: 1%;
+    padding: 0.9rem;
+    margin: 1%;
 }
 
 /* Category headers */
@@ -12,47 +28,24 @@ section.category > h2 {
     background-color: var(--LightBlue);
     margin: 2% 0%;
 
-    color: var(--LightBlue);
-    font-size: 2rem;
-    text-align: center;
-}
-/* Product tiles header */
-section.products > h2 {
-    width: 100%;
-    height: 100%;
-    background-color: var(--LightBlue);
-    margin: 2% 0%;
-
     color: var(--OffWhite);
     font-size: 2rem;
+    text-align: center; 
+}
+
+/* Product tiles header */
+section.products h3 {
+    margin: 5% 0%;
+}
+
+section.products p {
     text-align: center;
+    margin: 5% 0%;
 }
 
-section.article {
-    width: 17vw;
-    min-width: 250px;
-
-    border: solid 1px var(--LightGrey);
-    border-radius: 1%;
-    padding: 2%;
-    margin: 1%;
-
-    color: var(--DarkBlue);
-}
-
-section.article > input {
-    width: 20%;
-    color: var(--DarkBlue);
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-/* img {
+img {
     width: 100%;
-} */
+}
 
 .fa {
     align-self: center;

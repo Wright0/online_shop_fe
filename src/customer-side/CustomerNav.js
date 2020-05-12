@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import '../NavBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 
 function CustomerNav() {
 
@@ -14,7 +16,8 @@ return (
                 </ul>
             </nav>
             <section>
-                <a href="#shoppingCart">Cart <i className="fas fa-shopping-cart"></i></a>
+
+                <a href="#shoppingCart">Cart <FontAwesomeIcon icon={faShoppingCart} /></a>
             </section>
         </div>
         <h1>Grow Urban</h1>
