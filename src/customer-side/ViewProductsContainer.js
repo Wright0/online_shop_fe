@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ProductCard from './ProductCard.js'
 import './ViewProductsContainer.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 
 function ViewProductsContainer() {
+
+  const [products, setProducts] = useState([])
+
+  const getProducts = () => {
+    fetch('http://localhost:8000/api/products')
+    .then(response => response.json())
+    .then(productsList => setProducts(productsList))
+    .catch(err => console.error)
+  }
+
+  useEffect(() => {
+    getProducts()
+  }, [])
+
+  const returnProducts = products.map((product) => {
+    return <ProductCard key={product.id} product={product}/>
+  })
 
   return (
     <>
@@ -12,57 +28,7 @@ function ViewProductsContainer() {
             <h2>Products</h2>
 
             <section className="products">
-                <article>
-                  <h3>Monstera Deliciosa</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
-                  <section className="add-to-cart">
-                    <input type="number" default value="1"/>
-                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-                  </section>
-                </article>
-
-                <article>
-                  <h3>Monstera Deliciosa</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
-                  <section className="add-to-cart">
-                    <input type="number" default value="1"/>
-                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-                  </section>
-                </article>
-
-                <article>
-                  <h3>Monstera Deliciosa</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
-                  <section className="add-to-cart">
-                    <input type="number" default value="1"/>
-                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-                  </section>
-                </article>
-
-                <article>
-                  <h3>Monstera Deliciosa</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
-                  <section className="add-to-cart">
-                    <input type="number" default value="1"/>
-                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-                  </section>
-                </article>
-
-                <article>
-                  <h3>Monstera Deliciosa</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
-                  <section className="add-to-cart">
-                    <input type="number" default value="1"/>
-                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-                  </section>
-                </article>
-
-
+            {returnProducts}
             </section>
         </section>   
     </main>
