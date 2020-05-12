@@ -9,15 +9,24 @@ import AdminPortal from './admin-side/AdminPortal.js';
 import OrderDeliveryContainer from './admin-side/orders-deliveries/OrderDeliveryContainer.js';
 import CustomerContainer from './customer-side/CustomerContainer.js';
 import AdminPortalNav from './admin-side/AdminPortalNav.js'
+import CustomerNav from './customer-side/CustomerNav.js';
 
 function App() {
 
   return (
     <Switch>
-      <Route exact path="/" component={ Homepage } />
+      <Route exact path="/" render={ () => 
+        <>
+          <CustomerNav/>
+          <Homepage/>
+        </>
+      }/>
 
       <Route exact path="/shop" render={ () => 
+        <>
+          <CustomerNav/>
           <CustomerContainer/>
+        </>
       }/>
 
       <Route exact path="/admin" render={ () =>

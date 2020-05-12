@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AdminPortalNav from '../AdminPortalNav.js';
 import ManageProductsHeader from './ManageProductsHeader.js';
 import AddProductButton from './button-elements/AddProductButton.js'
 import Table from './table-elements/Table.js';

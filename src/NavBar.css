@@ -1,0 +1,35 @@
+.nav-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: var(--DarkBlue);
+    border-bottom: solid 1px var(--LightGrey);
+}
+
+.nav-section ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-section li {
+    cursor: pointer;
+    margin: 0% 2% 0% 5%;
+}
+
+.nav-section a {
+    color:var(--LightBlue);
+    text-decoration: none;
+    align-self: center;
+}
+
+.nav-section a:hover {
+    background-color: var(--LightBlue);
+    color:var(--OffWhite);
+    text-decoration: none;
+    padding:1rem;
+}
+
+.nav-section > section {
+    display:flex;
+    justify-content: flex-end;
+    margin: 0% 5% 0% 0%;
+}

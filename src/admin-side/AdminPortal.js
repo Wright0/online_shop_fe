@@ -1,5 +1,4 @@
 import React from 'react';
-import AdminPortalNav from './AdminPortalNav.js'
 import './AdminPortal.css';
 
 function AdminPortal() {

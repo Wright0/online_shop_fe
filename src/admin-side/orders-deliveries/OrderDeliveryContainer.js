@@ -1,7 +1,6 @@
 import React from 'react';
 import DeliveriesContainer from './DeliveriesContainer.js'
 import OrdersContainer from './OrdersContainer.js'
-import AdminPortalNav from '../AdminPortalNav.js'
 
 function OrderDeliveryContainer() {
   return (
