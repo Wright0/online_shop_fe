@@ -17,7 +17,6 @@ function ProductContainer() {
 
   return (
     <>
-    <AdminPortalNav/>
     <section className="productContainerHeader">
       <ManageProductsHeader/>
       {renderNewProductButton()}

@@ -1,0 +1,124 @@
+:root {
+    --OffWhite: ghostwhite;
+    --DarkBlue: #122439;
+    --LightBlue: #335C81;
+    --LightGrey: #ddd;
+    --RaisinBlack: #242423;
+    --Yellow: #F5CB5C;
+  }
+
+body {
+    color: var(--OffWhite);
+    font-family: 'Jost', sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+h1{
+    color:var(--LightBlue);
+    font-size: 3rem;
+    margin: 2% 0% 1% 0%
+}
+
+.nav-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: var(--DarkBlue);
+    border-bottom: solid 1px var(--LightGrey);
+}
+
+nav.customer-shop-nav > ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav.customer-shop-nav > ul > li {
+    cursor: pointer;
+    margin: 0% 2%;
+}
+
+nav.customer-shop-nav > ul > li > a,
+.nav-section a {
+    color:var(--LightBlue);
+    text-decoration: none;
+}
+
+.nav-section a {
+    align-self: center;
+}
+
+nav.customer-shop-nav > ul > li > a:hover,
+.nav-section a:hover {
+    background-color: var(--LightBlue);
+    color:var(--OffWhite);
+    text-decoration: none;
+    padding:1rem;
+}
+
+.nav-section > section {
+    display:flex;
+    justify-content: flex-end;
+    margin: 0% 5%;
+}
+
+section.products > div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+/* Category headers */
+section.category > h2 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--LightBlue);
+    margin: 2% 0%;
+
+    color: var(--OffWhite);
+    font-size: 2rem;
+    text-align: center;
+}
+/* Product tiles header */
+section.products > h2 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--LightBlue);
+    margin: 2% 0%;
+
+    color: var(--OffWhite);
+    font-size: 2rem;
+    text-align: center;
+}
+
+section.article {
+    width: 17vw;
+    min-width: 250px;
+
+    border: solid 1px var(--LightGrey);
+    border-radius: 1%;
+    padding: 2%;
+    margin: 1%;
+
+    color: var(--DarkBlue);
+}
+
+section.article > input {
+    width: 20%;
+    color: var(--DarkBlue);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* img {
+    width: 100%;
+} */
+
+.fa {
+    align-self: center;
+}

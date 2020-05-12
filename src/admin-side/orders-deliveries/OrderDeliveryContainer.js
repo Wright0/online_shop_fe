@@ -6,7 +6,6 @@ import AdminPortalNav from '../AdminPortalNav.js'
 function OrderDeliveryContainer() {
   return (
     <>
-    <AdminPortalNav/>
     <h1>I am the entire order and delivery container</h1>
     <p>This will have the delivery container on top and the orders container at the bottom. They will have their own subcomponents</p>
     <DeliveriesContainer/>

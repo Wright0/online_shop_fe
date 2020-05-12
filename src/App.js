@@ -8,6 +8,7 @@ import ProductContainer from './admin-side/products/ProductContainer.js';
 import AdminPortal from './admin-side/AdminPortal.js';
 import OrderDeliveryContainer from './admin-side/orders-deliveries/OrderDeliveryContainer.js';
 import CustomerContainer from './customer-side/CustomerContainer.js';
+import AdminPortalNav from './admin-side/AdminPortalNav.js'
 
 function App() {
 
@@ -16,19 +17,28 @@ function App() {
       <Route exact path="/" component={ Homepage } />
 
       <Route exact path="/shop" render={ () => 
-          <CustomerContainer />
+          <CustomerContainer/>
       }/>
 
-      <Route exact path="/admin" render={ () => 
-        <AdminPortal/>
+      <Route exact path="/admin" render={ () =>
+        <>
+          <AdminPortalNav/>
+          <AdminPortal/>
+        </>
       }/>
 
       <Route exact path="/admin/products" render={ () => 
-        <ProductContainer/>
+        <>
+          <AdminPortalNav/>
+          <ProductContainer/>
+        </>
       }/>
 
-      <Route exact path="/admin/orders-and-deliveries" render={ () => 
-        <OrderDeliveryContainer />
+      <Route exact path="/admin/orders-and-deliveries" render={ () =>
+        <>
+          <AdminPortalNav/>
+          <OrderDeliveryContainer/>
+        </>
       }/>
 
       <Route render={() => <Error404/>} />
