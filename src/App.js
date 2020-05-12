@@ -29,6 +29,20 @@ function App() {
         </>
       }/>
 
+      {/* <Route exact path="/shop/:category" render={ () => 
+        <>
+          <CustomerNav/>
+          <ProductContainer/>
+        </>
+      }/> */}
+
+      <Route exact path="/shop/:category/:id" render={ () => 
+        <>
+          <CustomerNav/>
+          <ProductContainer/>
+        </>
+      }/>
+
       <Route exact path="/admin" render={ () =>
         <>
           <AdminPortalNav/>

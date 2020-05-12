@@ -62,10 +62,15 @@ section.add-to-cart button {
     border: solid 1px var(--LightGrey);
     border-radius: 1%;
     margin: 0% 2%;
+    padding:3.5%;
     font-size: 0.8rem;
 }
 
 section.add-to-cart input {
     width: 15%;
 }
+section.add-to-cart button {
+    cursor: pointer;
+}
+
 
