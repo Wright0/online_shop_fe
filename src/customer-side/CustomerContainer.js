@@ -1,5 +1,7 @@
 import React from 'react';
 import './CustomerContainer.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 
 function CustomerContainer() {
 
@@ -14,37 +16,52 @@ function CustomerContainer() {
                   <h3>Monstera Deliciosa</h3>
                   <img src="https://picsum.photos/300/200" alt="product"/>
                   <p>22.95£</p>
-                </article>
-
-                <article>
-                  <h3>Aloe Vera</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
-                </article>
-
-                <article>
-                  <h3>String of Hearts</h3>
-                  <img src="https://picsum.photos/300/200" alt="product"/>
-                  <p>22.95£</p>
+                  <section className="add-to-cart">
+                    <input type="number" default value="1"/>
+                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+                  </section>
                 </article>
 
                 <article>
                   <h3>Monstera Deliciosa</h3>
                   <img src="https://picsum.photos/300/200" alt="product"/>
                   <p>22.95£</p>
+                  <section className="add-to-cart">
+                    <input type="number" default value="1"/>
+                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+                  </section>
                 </article>
 
                 <article>
-                  <h3>Aloe Vera</h3>
+                  <h3>Monstera Deliciosa</h3>
                   <img src="https://picsum.photos/300/200" alt="product"/>
                   <p>22.95£</p>
+                  <section className="add-to-cart">
+                    <input type="number" default value="1"/>
+                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+                  </section>
                 </article>
 
                 <article>
-                  <h3>String of Hearts</h3>
+                  <h3>Monstera Deliciosa</h3>
                   <img src="https://picsum.photos/300/200" alt="product"/>
                   <p>22.95£</p>
+                  <section className="add-to-cart">
+                    <input type="number" default value="1"/>
+                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+                  </section>
                 </article>
+
+                <article>
+                  <h3>Monstera Deliciosa</h3>
+                  <img src="https://picsum.photos/300/200" alt="product"/>
+                  <p>22.95£</p>
+                  <section className="add-to-cart">
+                    <input type="number" default value="1"/>
+                    <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+                  </section>
+                </article>
+
 
             </section>
         </section>   

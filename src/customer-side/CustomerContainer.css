@@ -7,8 +7,12 @@ section.products {
 
 section.products article:hover {
     border: solid 3px var(--LightGrey);
+}
+
+section.products img:hover {
     cursor: pointer;
 }
+
 
 /* Product card containers */
 section.products article {
@@ -47,6 +51,21 @@ img {
     width: 100%;
 }
 
-.fa {
-    align-self: center;
+section.add-to-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
+section.add-to-cart input,
+section.add-to-cart button {
+    border: solid 1px var(--LightGrey);
+    border-radius: 1%;
+    margin: 0% 2%;
+    font-size: 0.8rem;
+}
+
+section.add-to-cart input {
+    width: 15%;
+}
+
