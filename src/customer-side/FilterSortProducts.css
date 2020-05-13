@@ -1,0 +1,28 @@
+/* Filtering CSS */
+section.category section.filtering {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+}
+
+section.filtering div {
+    display:flex;
+    flex-direction: row;
+    align-items:flex-end;
+    margin: 1rem 0.5rem;
+}
+
+section.filtering p {
+    margin:0px;
+}
+
+section.category section.filtering div:nth-child(2){
+    justify-content: flex-end;
+}
+
+section.category section.filtering select{
+    background-color: transparent;
+    border: none;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline-color:var(--LightBlue);
+}
