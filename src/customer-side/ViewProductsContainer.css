@@ -13,11 +13,11 @@ section.products img:hover {
     cursor: pointer;
 }
 
-
 /* Product card containers */
 section.products article {
     width: 17vw;
     min-width: 250px;
+    box-sizing: border-box;
 
     border: solid 1px var(--LightGrey);
     border-radius: 1%;
