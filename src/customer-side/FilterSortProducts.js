@@ -1,11 +1,15 @@
 import React from 'react';
 import './FilterSortProducts.css'
 
-function FilterSortProducts({setSelectedCategory, setFilteredProductsAfterSelect}){
+function FilterSortProducts({setSelectedCategory, setFilteredProductsAfterSelect, sortProducts}){
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value)
         setFilteredProductsAfterSelect(event.target.value)
+    }
+
+    const handleSort = (event) => {
+      sortProducts(event.target.value)
     }
 
     return (
@@ -21,9 +25,9 @@ function FilterSortProducts({setSelectedCategory, setFilteredProductsAfterSelect
               </div>
               <div>
               <p>Sort by -</p>
-              <select>
-                <option>Price (low to high)
-                </option>
+              <select onChange={(e) => handleSort(e)}>
+                <option>Most Recently Added</option>
+                <option>Price (low to high)</option>
                 <option>Price (high to low)</option>
               </select>
               </div>

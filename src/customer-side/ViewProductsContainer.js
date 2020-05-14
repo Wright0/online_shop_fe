@@ -6,7 +6,7 @@ import './ViewProductsContainer.css'
 function ViewProductsContainer() {
 
   const [products, setProducts] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState("fruits")
+  const [selectedCategory, setSelectedCategory] = useState()
   const [filteredProducts, setFilteredProducts] = useState([])
 
   const setInitialProducts = (products) => {
@@ -25,6 +25,10 @@ function ViewProductsContainer() {
     getProducts()
   }, [])
 
+  useEffect(() => {
+    getProducts()
+  }, [])
+
   const setFilteredProductsAfterSelect = (category) => {
     let filterResult = []
     if(category === "All products"){
@@ -34,6 +38,21 @@ function ViewProductsContainer() {
       setFilteredProducts(filterResult)
     }
   }
+
+  const sortProducts = (sortMethod) => {
+    let filtered = []
+    if (sortMethod === "Most Recently Added") {
+      filtered = [...filteredProducts].sort((a, b) => b.id - a.id)
+    } else if (sortMethod === "Price (low to high)"){
+      filtered = [...filteredProducts].sort((a, b) => a.price - b.price)
+    } else if (sortMethod === "Price (high to low)"){
+      filtered = [...filteredProducts].sort((a, b) => b.price - a.price)
+    }
+    setFilteredProducts(filtered)
+    console.log(filtered)
+    console.log(filteredProducts)
+  }
+
 
   const categoryTitle = () => {
     if (selectedCategory) {
@@ -55,6 +74,7 @@ function ViewProductsContainer() {
             <FilterSortProducts 
               setSelectedCategory={setSelectedCategory}
               setFilteredProductsAfterSelect={setFilteredProductsAfterSelect}
+              sortProducts={sortProducts}
             />
             <section className="products"> 
             {returnProducts}
