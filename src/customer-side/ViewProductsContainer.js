@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard.js'
-import FilterSortProducts from './FilterSortProducts.js';
+import FilterSortProducts from '../shared-logic/filter-sort-products/FilterSortProducts.js';
 import './ViewProductsContainer.css'
-
 
 function ViewProductsContainer() {
 
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
   const [selectedCategory, setSelectedCategory] = useState()
-  const [sortMode, setSortMode] = useState()
+  const [sortMode, setSortMode] = useState("newToOld")
 
   const setInitialProducts = (products) => {
     products.sort((a, b) => b.id - a.id)

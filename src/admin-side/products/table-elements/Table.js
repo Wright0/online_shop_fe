@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react';
 import TableRows from './table-row-elements/TableRow.js';
 import NewProduct from './table-row-elements/NewProduct.js'
 import NoProducts from './table-row-elements/NoProducts.js'
-// import AdminFilterSortProducts from './AdminFilterSortProducts.js'
+import FilterSortProducts from '../../../shared-logic/filter-sort-products/FilterSortProducts.js'
 import './Table.css';
 
 function Table({ isAddingNew, handleClickAddNew }) {
 
-  const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState()
+  const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState()
+  const [sortMode, setSortMode] = useState("oldToNew")
 
   const giveProductsEditableModeAtGET = (productsList) => {
       const newProducts = productsList.map(product => {
@@ -117,12 +118,14 @@ function Table({ isAddingNew, handleClickAddNew }) {
 
   return (
     <>
-    
-
-      {/* <AdminFilterSortProducts 
-        setFilteredProductsAfterSelect={setFilteredProductsAfterSelect}
-        sortProducts={sortProducts}
-      /> */}
+          <FilterSortProducts 
+              products={products}
+              filteredProducts={filteredProducts}
+              setFilteredProducts={setFilteredProducts}
+              setSelectedCategory={setSelectedCategory}
+              setSortMode={setSortMode}
+              sortMode={sortMode}
+            />
       <table className="products-table">
         <thead>
           <tr>

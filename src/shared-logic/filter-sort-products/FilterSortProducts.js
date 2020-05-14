@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './FilterSortProducts.css'
-import {filterProductsByCategory, sortProducts, returnFilterCategory, returnSortMethod} from '../shared-logic/FilterSortLogic.js';
+import {filterProductsByCategory, sortProducts, returnFilterCategory, returnSortMethod} from './FilterSortLogic.js';
 
 function FilterSortProducts({products, filteredProducts, setFilteredProducts, setSelectedCategory, setSortMode, sortMode}){
 

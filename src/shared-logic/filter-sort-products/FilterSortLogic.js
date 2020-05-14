@@ -27,7 +27,3 @@ export function sortProducts(sortMethod, products){
   export function returnSortMethod(event){
       return event.target.value
   }
-
-  // export function resetSortOnFilter(referenceItem){
-  //     referenceItem.
-  // }
