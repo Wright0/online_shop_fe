@@ -10,6 +10,7 @@ function ViewProductsContainer() {
   const [filteredProducts, setFilteredProducts] = useState([])
 
   const setInitialProducts = (products) => {
+    products.sort((a, b) => b.id - a.id)
     setProducts(products);
     setFilteredProducts(products);
   }
