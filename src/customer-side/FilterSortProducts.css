@@ -1,5 +1,5 @@
 /* Filtering CSS */
-section.category section.filtering {
+section.filtering {
     display: grid;
     grid-template-columns: 1fr 1fr ;
 }
@@ -15,11 +15,11 @@ section.filtering p {
     margin:0px;
 }
 
-section.category section.filtering div:nth-child(2){
+section.filtering div:nth-child(2){
     justify-content: flex-end;
 }
 
-section.category section.filtering select{
+section.filtering select{
     background-color: transparent;
     border: none;
     font-size: 0.9rem;

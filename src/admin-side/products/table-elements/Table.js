@@ -2,19 +2,24 @@ import React, {useState, useEffect} from 'react';
 import TableRows from './table-row-elements/TableRow.js';
 import NewProduct from './table-row-elements/NewProduct.js'
 import NoProducts from './table-row-elements/NoProducts.js'
+// import AdminFilterSortProducts from './AdminFilterSortProducts.js'
 import './Table.css';
 
 function Table({ isAddingNew, handleClickAddNew }) {
 
   const [products, setProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState()
+  const [filteredProducts, setFilteredProducts] = useState([])
 
   const giveProductsEditableModeAtGET = (productsList) => {
       const newProducts = productsList.map(product => {
           return {...product, "isInEditMode": false}}
           )
       setProducts(newProducts);
+      setFilteredProducts(newProducts);
    }
 
+  //HTTP REQUEST: GET
   const getProducts = () => {
       fetch(`http://localhost:8000/api/products`)
       .then(response => response.json())
@@ -45,7 +50,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
     productsWithNewAddition.push(newItem);
     setProducts(productsWithNewAddition);
   }
-
+  //HTTP REQUEST: POST
   const saveNewItem = (newItem) => {
     fetch(`http://localhost:8000/api/products/`, {
       method: 'POST',
@@ -74,7 +79,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
 
     setProducts(productsCopy);
   }
-
+  //HTTP REQUEST: PUT
   const editItem = (item) => {
     delete item.isInEditMode;
     fetch(`http://localhost:8000/api/products/${item.id}/`,{
@@ -93,6 +98,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
     setProducts(productsCopy);
   }
 
+  //HTTP REQUEST: DESTROY
   const deleteItem = (itemId) => {
     fetch(`http://localhost:8000/api/products/${itemId}/`, {
       method:'DELETE'
@@ -111,7 +117,13 @@ function Table({ isAddingNew, handleClickAddNew }) {
 
   return (
     <>
-    <table className="products-table">
+    
+
+      {/* <AdminFilterSortProducts 
+        setFilteredProductsAfterSelect={setFilteredProductsAfterSelect}
+        sortProducts={sortProducts}
+      /> */}
+      <table className="products-table">
         <thead>
           <tr>
             <th>Product ID</th>
@@ -127,14 +139,13 @@ function Table({ isAddingNew, handleClickAddNew }) {
         <tbody>
         {newItem()}
         <TableRows 
-          products={products}
+          products={filteredProducts}
           setProducts={setProducts}
           editItem={editItem}
           deleteItem={deleteItem}
         />
         </tbody>
     </table>
-
     {noItems()}
     </>
   );

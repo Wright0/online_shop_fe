@@ -3,11 +3,13 @@ import ProductCard from './ProductCard.js'
 import FilterSortProducts from './FilterSortProducts.js';
 import './ViewProductsContainer.css'
 
+
 function ViewProductsContainer() {
 
   const [products, setProducts] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState()
   const [filteredProducts, setFilteredProducts] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState()
+  const [sortMode, setSortMode] = useState()
 
   const setInitialProducts = (products) => {
     products.sort((a, b) => b.id - a.id)
@@ -25,35 +27,6 @@ function ViewProductsContainer() {
   useEffect(() => {
     getProducts()
   }, [])
-
-  useEffect(() => {
-    getProducts()
-  }, [])
-
-  const setFilteredProductsAfterSelect = (category) => {
-    let filterResult = []
-    if(category === "All products"){
-      setFilteredProducts(products)
-    } else {
-      filterResult = products.filter((product) => product.category === category)
-      setFilteredProducts(filterResult)
-    }
-  }
-
-  const sortProducts = (sortMethod) => {
-    let filtered = []
-    if (sortMethod === "Most Recently Added") {
-      filtered = [...filteredProducts].sort((a, b) => b.id - a.id)
-    } else if (sortMethod === "Price (low to high)"){
-      filtered = [...filteredProducts].sort((a, b) => a.price - b.price)
-    } else if (sortMethod === "Price (high to low)"){
-      filtered = [...filteredProducts].sort((a, b) => b.price - a.price)
-    }
-    setFilteredProducts(filtered)
-    console.log(filtered)
-    console.log(filteredProducts)
-  }
-
 
   const categoryTitle = () => {
     if (selectedCategory) {
@@ -73,9 +46,12 @@ function ViewProductsContainer() {
         <section className="category">
             {categoryTitle()}
             <FilterSortProducts 
+              products={products}
+              filteredProducts={filteredProducts}
+              setFilteredProducts={setFilteredProducts}
               setSelectedCategory={setSelectedCategory}
-              setFilteredProductsAfterSelect={setFilteredProductsAfterSelect}
-              sortProducts={sortProducts}
+              setSortMode={setSortMode}
+              sortMode={sortMode}
             />
             <section className="products"> 
             {returnProducts}
