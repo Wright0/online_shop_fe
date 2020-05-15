@@ -17,7 +17,7 @@ return (
             </nav>
             <section>
 
-                <a href="#shoppingCart">Cart <FontAwesomeIcon icon={faShoppingCart} /></a>
+                <Link to="/shop/cart">Cart <FontAwesomeIcon icon={faShoppingCart} /></Link>
             </section>
         </div>
         <h1>Grow Urban</h1>
