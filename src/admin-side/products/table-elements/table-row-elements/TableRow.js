@@ -2,20 +2,20 @@ import React from 'react';
 import EditableProduct from './EditableProduct.js'
 import Product from './Product.js'
 
-function TableRows({products, setProducts, editItem, deleteItem}) {
+function TableRows({filteredProducts, setFilteredProducts, editItem, deleteItem}) {
 
     const toggleEditSetting = (rowProduct) => {
-        const newProductList = products.map(product => {
+        const newProductList = filteredProducts.map(product => {
             if (product.id === rowProduct.id){
                 return {...product, isInEditMode: !product.isInEditMode}
             } else {
                 return product;
             }
         })
-        setProducts(newProductList);
+        setFilteredProducts(newProductList);
     }
 
-    const renderTableRows = products.map(product => {
+    const renderTableRows = filteredProducts.map(product => {
         if (product.isInEditMode) {
             return (
                 <EditableProduct 

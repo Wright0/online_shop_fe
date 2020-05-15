@@ -7,7 +7,7 @@ function ViewProductsContainer() {
 
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState()
+  const [selectedCategory, setSelectedCategory] = useState("All products")
   const [sortMode, setSortMode] = useState("newToOld")
 
   const setInitialProducts = (products) => {

@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './FilterSortProducts.css'
 import {filterProductsByCategory, sortProducts, returnFilterCategory, returnSortMethod} from './FilterSortLogic.js';
 
 function FilterSortProducts({products, filteredProducts, setFilteredProducts, setSelectedCategory, setSortMode, sortMode}){
 
     const persistSort = (sortMode, newlyFilteredProducts) => {
+      console.log("newlyFilteredProducts", newlyFilteredProducts)
       const sortedProducts = sortProducts(sortMode, newlyFilteredProducts);
       setFilteredProducts(sortedProducts);
     }

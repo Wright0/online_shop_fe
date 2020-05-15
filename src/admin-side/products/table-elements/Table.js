@@ -9,8 +9,8 @@ function Table({ isAddingNew, handleClickAddNew }) {
 
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState()
-  const [sortMode, setSortMode] = useState("oldToNew")
+  const [selectedCategory, setSelectedCategory] = useState("All products")
+  const [sortMode, setSortMode] = useState("newToOld")
 
   const giveProductsEditableModeAtGET = (productsList) => {
       const newProducts = productsList.map(product => {
@@ -142,8 +142,8 @@ function Table({ isAddingNew, handleClickAddNew }) {
         <tbody>
         {newItem()}
         <TableRows 
-          products={filteredProducts}
-          setProducts={setProducts}
+          filteredProducts={filteredProducts}
+          setFilteredProducts={setProducts}
           editItem={editItem}
           deleteItem={deleteItem}
         />
