@@ -11,6 +11,7 @@ import OrderDeliveryContainer from './admin-side/orders-deliveries/OrderDelivery
 
 import CustomerProductContainer from './customer-side/CustomerProductContainer.js'
 import ViewProductsContainer from './customer-side/ViewProductsContainer.js';
+import ShoppingCart from './customer-side/shopping-cart/ShoppingCart.js'
 
 import AdminPortalNav from './admin-side/AdminPortalNav.js'
 import CustomerNav from './customer-side/CustomerNav.js';
@@ -39,6 +40,13 @@ function App() {
           <CustomerProductContainer/>
         </>
       }/> */}
+
+      <Route exact path="/shop/cart" render={ () => 
+        <>
+        <CustomerNav/>
+        <ShoppingCart/>
+        </>
+      }/>
 
       <Route exact path="/shop/:category/:id" render={ () => 
         <>
