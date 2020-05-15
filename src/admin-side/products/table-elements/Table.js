@@ -4,6 +4,7 @@ import NewProduct from './table-row-elements/NewProduct.js'
 import NoProducts from './table-row-elements/NoProducts.js'
 import FilterSortProducts from '../../../shared-logic/filter-sort-products/FilterSortProducts.js'
 import './Table.css';
+import {returnStringPriceToNumber} from '../../../shared-logic/PriceDecimalConversionLogic.js';
 
 function Table({ isAddingNew, handleClickAddNew }) {
 
@@ -70,7 +71,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
   const changeProductInProductsArray = (itemBeingChanged) => {
     itemBeingChanged.isInEditMode = false;
     
-    const productsCopy = products.map( product => {
+    const productsCopy = filteredProducts.map( product => {
       if (product.id === itemBeingChanged.id) {
         return itemBeingChanged
       } else {
@@ -78,8 +79,9 @@ function Table({ isAddingNew, handleClickAddNew }) {
       }
     });
 
-    setProducts(productsCopy);
+    setFilteredProducts(productsCopy);
   }
+
   //HTTP REQUEST: PUT
   const editItem = (item) => {
     delete item.isInEditMode;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { displayPriceWithDecimals, returnStringPriceToNumber } from '../../../../shared-logic/PriceDecimalConversionLogic.js';
 
 import './EditableProduct.css'; 
 
@@ -7,7 +8,11 @@ function EditableProduct({product, toggleEditSetting, editItem}) {
   const [productToUpdate, setProductToUpdate] = useState(product)
 
   const handleChange = (field, event) => {
+    if(field === "price"){
+      setProductToUpdate({ ...productToUpdate, [field]: returnStringPriceToNumber(event.target.value) })
+    } else {
       setProductToUpdate({ ...productToUpdate, [field]: event.target.value })
+    }
   }
 
   const individualModeButtons = () => {
@@ -32,7 +37,7 @@ function EditableProduct({product, toggleEditSetting, editItem}) {
           {/* <textarea onBlur={(event) => handleChange("category", event)} defaultValue="a category"/> */}
         </td>
         <td><input type="text" onBlur={(event) => handleChange("description", event)} defaultValue={product.description}/></td>
-        <td><input type="number" onBlur={(event) => handleChange("price", event)} defaultValue={product.price}/></td>
+        <td><input type="text" onBlur={(event) => handleChange("price", event)} defaultValue={displayPriceWithDecimals(product.price)}/></td>
         <td><input type="number" onBlur={(event) => handleChange("stock_quantity", event)} defaultValue={product.stock_quantity}/></td>
         {individualModeButtons()}
       </tr>

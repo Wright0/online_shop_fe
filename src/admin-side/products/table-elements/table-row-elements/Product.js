@@ -1,6 +1,7 @@
 import React from 'react';
 import './Product.css'; 
 import './TableButtons.css';
+import {displayPriceWithDecimals} from '../../../../shared-logic/PriceDecimalConversionLogic.js'
 
 function Product({ product, toggleEditSetting, deleteItem }) {
 
@@ -11,7 +12,7 @@ function Product({ product, toggleEditSetting, deleteItem }) {
         <td>{product.product_name}</td>
         <td>{product.category}</td>
         <td>{product.description}</td>
-        <td>{product.price}</td>
+        <td>{displayPriceWithDecimals(product.price)}</td>
         <td>{product.stock_quantity}</td>
         <td>
           <button className="edit" onClick={() => toggleEditSetting(product)} >Edit</button>
