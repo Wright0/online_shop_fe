@@ -40,8 +40,6 @@ function ViewProductsContainer() {
   })
 
   return (
-    <>
-    <main>
         <section className="category">
             {categoryTitle()}
             <FilterSortProducts 
@@ -55,9 +53,7 @@ function ViewProductsContainer() {
             <section className="products"> 
             {returnProducts}
             </section>
-        </section>   
-    </main>
-    </>
+        </section>
   );
 }
 
