@@ -143,7 +143,7 @@ function Table({ isAddingNew, handleClickAddNew }) {
         {newItem()}
         <TableRows 
           filteredProducts={filteredProducts}
-          setFilteredProducts={setProducts}
+          setFilteredProducts={setFilteredProducts}
           editItem={editItem}
           deleteItem={deleteItem}
         />
