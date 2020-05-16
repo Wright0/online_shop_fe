@@ -3,11 +3,12 @@ import { useParams, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 import './CustomerProductContainer.css';
+import {displayPriceWithDecimals} from '../shared-logic/PriceDecimalConversionLogic.js';
 
 
 function ViewProductsContainer() {
 
-    const urlParams = useParams()
+    const urlParams = useParams();
     const history = useHistory();
 
     const [product, setProduct] = useState({})
@@ -35,7 +36,7 @@ function ViewProductsContainer() {
         <p>{product.description}</p>
 
         <div className="order-info-buttons">
-          <p>£{product.price}</p>
+          <p>£{displayPriceWithDecimals(product.price)}</p>
           <p>{product.stock_quantity} items left</p>
           <input type="number" defaultValue="1"/>
           <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
