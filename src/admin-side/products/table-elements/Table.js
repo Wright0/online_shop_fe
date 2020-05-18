@@ -4,7 +4,6 @@ import NewProduct from './table-row-elements/NewProduct.js'
 import NoProducts from './table-row-elements/NoProducts.js'
 import FilterSortProducts from '../../../shared-logic/filter-sort-products/FilterSortProducts.js'
 import './Table.css';
-import {returnStringPriceToNumber} from '../../../shared-logic/PriceDecimalConversionLogic.js';
 
 function Table({ isAddingNew, handleClickAddNew }) {
 

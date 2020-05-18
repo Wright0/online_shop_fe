@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ProductCard from './ProductCard.js'
 import FilterSortProducts from '../../shared-logic/filter-sort-products/FilterSortProducts.js';
 import './AllProducts.css'
