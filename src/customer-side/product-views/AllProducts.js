@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard.js'
-import FilterSortProducts from '../shared-logic/filter-sort-products/FilterSortProducts.js';
-import './ViewProductsContainer.css'
+import FilterSortProducts from '../../shared-logic/filter-sort-products/FilterSortProducts.js';
+import './AllProducts.css'
 
 function ViewProductsContainer() {
 

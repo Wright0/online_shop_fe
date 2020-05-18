@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
+import './ShoppingCart.css';
 
 function ShoppingCart(){
 
@@ -42,7 +43,7 @@ function ShoppingCart(){
         <>
         <p> Keep Shopping</p>
             <h1>Cart</h1>
-            <table>
+            <table className="cart-items">
                 <thead>
                     <tr>
                         <th>Item</th>

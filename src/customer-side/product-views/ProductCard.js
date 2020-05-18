@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
-import {displayPriceWithDecimals} from '../shared-logic/PriceDecimalConversionLogic.js';
+import { displayPriceWithDecimals } from '../../shared-logic/PriceDecimalConversionLogic.js';
+import './ProductCard.css';
 
 function ProductCard({product}) {
     

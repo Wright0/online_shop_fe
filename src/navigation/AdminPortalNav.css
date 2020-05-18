@@ -1,4 +1,4 @@
-div.admin-nav {
+/* div.admin-nav {
     display:grid;
     grid-template-columns: 5fr 1fr;
 
@@ -36,4 +36,4 @@ div.admin-nav p.login{
     justify-self:end;
     align-self:center;
     
-}
+} */

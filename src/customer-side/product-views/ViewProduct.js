@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
-import './CustomerProductContainer.css';
-import {displayPriceWithDecimals} from '../shared-logic/PriceDecimalConversionLogic.js';
+import './ViewProduct.css';
+import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
 
 
 function ViewProductsContainer() {

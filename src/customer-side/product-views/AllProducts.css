@@ -1,0 +1,21 @@
+/* Places the product cards */
+section.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+/* Category headers */
+section.category > h2 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--LightBlue);
+    margin: 2% 0%;
+
+    color: var(--OffWhite);
+    font-size: 2rem;
+    text-align: center; 
+}
+
+
