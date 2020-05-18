@@ -5,8 +5,7 @@ import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 import { displayPriceWithDecimals } from '../../shared-logic/PriceDecimalConversionLogic.js';
 import './ProductCard.css';
 
-function ProductCard({product}) {
-    
+function ProductCard({product, handleAddToCart}) {
     
     return (
         <article>
@@ -15,7 +14,7 @@ function ProductCard({product}) {
             <p>£{displayPriceWithDecimals(product.price)}</p>
             <section className="add-to-cart">
             <input type="number" defaultValue="1"/>
-            <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+            <button onClick={() => handleAddToCart(product.id)}>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
             </section>
         </article>
     )

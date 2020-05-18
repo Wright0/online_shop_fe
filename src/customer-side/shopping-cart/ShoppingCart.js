@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
 import './ShoppingCart.css';
 
-function ShoppingCart(){
+function ShoppingCart(shoppingCartItemIds){
 
-    const [shoppingCartItemsId, setShoppingCartItemsId] = useState([52, 2, 4])
     const [productsInCart, setProductsInCart] = useState([])
 
-    const productUrls = shoppingCartItemsId.map(id => `http://localhost:8000/api/products/${id}/`)
+    const productUrls = shoppingCartItemIds.map(id => `http://localhost:8000/api/products/${id}/`)
 
     const getProducts = () => {
         Promise.all(productUrls.map(url => 

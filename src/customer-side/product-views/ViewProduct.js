@@ -6,7 +6,7 @@ import './ViewProduct.css';
 import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
 
 
-function ViewProductsContainer() {
+function ViewProductsContainer({handleAddToCart}) {
 
     const urlParams = useParams();
     const history = useHistory();
@@ -39,7 +39,7 @@ function ViewProductsContainer() {
           <p>£{displayPriceWithDecimals(product.price)}</p>
           <p>{product.stock_quantity} items left</p>
           <input type="number" defaultValue="1"/>
-          <button>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+          <button onClick={() => handleAddToCart(product.id)}>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
         </div>
         <p>Before you order, please read the delivery information.</p>
       </section>
