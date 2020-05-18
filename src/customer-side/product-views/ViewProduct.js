@@ -14,7 +14,7 @@ function ViewProductsContainer({handleAddToCart}) {
     const [product, setProduct] = useState({})
 
     const getProduct = () => {
-      fetch(`http://localhost:8000/api/products/${urlParams.id}`)
+      fetch(`http://localhost:8000/api/products/${urlParams.id}/`)
       .then(response => response.json())
       .then(product => setProduct(product))
       .catch(err => console.error)

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
 import './ShoppingCart.css';
 
-function ShoppingCart(shoppingCartItemIds){
+function ShoppingCart({shoppingCartItemIds}){
 
     const [productsInCart, setProductsInCart] = useState([])
 
@@ -38,26 +38,39 @@ function ShoppingCart(shoppingCartItemIds){
         }, 0)
     }
 
-    return (
-        <>
-        <p> Keep Shopping</p>
-            <h1>Cart</h1>
-            <table className="cart-items">
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Remove</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {itemIds}
-                </tbody>
-            </table>
-            <p>Total: £{displayPriceWithDecimals(calculateBasket())}</p>
-        </>
-    )
+    if (productsInCart.length === 0) {
+        return (
+            <>
+                <h1>Your cart is empty!</h1>
+                <p>Something about keep shopping.</p>
+            </>
+        )
+    }
+
+    if(productsInCart.length >0){
+        return (
+            <>
+            <p> Keep Shopping</p>
+                <h1>Cart</h1>
+                <table className="cart-items">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {itemIds}
+                    </tbody>
+                </table>
+                <p>Total: £{displayPriceWithDecimals(calculateBasket())}</p>
+            </>
+        )
+    }
+
+
 }
 
 export default ShoppingCart

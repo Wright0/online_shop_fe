@@ -8,7 +8,7 @@ import './ProductCard.css';
 function ProductCard({product, handleAddToCart}) {
     
     return (
-        <article>
+        <article className="product-card">
             <h3>{product.product_name}</h3>
             <Link to={`/shop/${product.category}/${product.id}`}><img src={product.image_url} alt={product.product_name}/></Link>
             <p>£{displayPriceWithDecimals(product.price)}</p>

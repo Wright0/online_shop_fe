@@ -1,5 +1,6 @@
+
 /* Product card containers */
-section.products article {
+article.product-card {
     width: 17vw;
     min-width: 250px;
     box-sizing: border-box;
@@ -8,20 +9,22 @@ section.products article {
     border-radius: 1%;
     padding: 0.9rem;
     margin: 1%;
+
+    transition: .2s;
 }
 
 /* Product Card header */
-section.products h3 {
+article.product-card h3 {
     margin: 5% 0%;
 }
 
 /* Product cart text */
-section.products p {
+article.product-card p {
     text-align: center;
     margin: 5% 0%;
 }
 
-section.products img {
+article.product-card img {
     width: 100%;
 }
 
@@ -47,10 +50,10 @@ section.add-to-cart button {
     cursor: pointer;
 }
 
-section.products img:hover {
+article.product-card img:hover {
     cursor: pointer;
 }
 
-section.products article:hover {
+/* section.products article:hover {
     border: solid 3px var(--LightGrey);
-}
+} */

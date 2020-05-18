@@ -19,7 +19,7 @@ function CustomerContainer() {
       }
     
       const getProducts = () => {
-        fetch('http://localhost:8000/api/products')
+        fetch('http://localhost:8000/api/products/')
         .then(response => response.json())
         .then(productsList => setInitialProducts(productsList))
         .catch(err => console.error)
