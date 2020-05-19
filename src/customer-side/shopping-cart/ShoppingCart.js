@@ -49,7 +49,7 @@ function ShoppingCart({shoppingCartItemIds}){
         return (
             <tr key={product.id}>
                 <td>{product.product_name}</td>
-                <td><input type="number" defaultValue="2"/> <button>Update</button></td>
+                <td><input type="number" defaultValue="2"/> <button>Update <FontAwesomeIcon icon="sync-alt"/></button></td>
                 <td>£{displayPriceWithDecimals(product.price)}</td>
                 <td><FontAwesomeIcon icon="times" className="delete-button" onClick={() => console.log("hi")}/></td>
             </tr>

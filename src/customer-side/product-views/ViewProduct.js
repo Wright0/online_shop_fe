@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 import './ViewProduct.css';
 import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
 
@@ -39,13 +38,13 @@ function ViewProductsContainer({handleAddToCart}) {
           <p>£{displayPriceWithDecimals(product.price)}</p>
           <p>{product.stock_quantity} items left</p>
           <input type="number" defaultValue="1"/>
-          <button onClick={() => handleAddToCart(product.id)}>Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
+          <button onClick={() => handleAddToCart(product.id)}>Add to Cart <FontAwesomeIcon icon="shopping-cart" /></button>
         </div>
         <p>Before you order, please read the delivery information.</p>
       </section>
     </article>
 
-    <p className="product-page-back" onClick={() => history.goBack()}> (ICON) Go back</p>
+    <p className="product-page-back" onClick={() => history.goBack()}> <FontAwesomeIcon icon="chevron-left" /> Go back</p>
     </>
     
   );

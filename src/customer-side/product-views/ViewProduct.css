@@ -28,6 +28,10 @@ div.order-info-buttons{
     grid-template-rows: 1fr 1fr;
 }
 
+div.order-info-buttons button:hover{
+    cursor: pointer;
+}
+
 div.order-info-buttons input,
 div.order-info-buttons button{
     border: 1px solid var(--LightBlue);
