@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/fontawesome-free-solid';
 
 function CustomerNav() {
 
@@ -17,7 +16,7 @@ return (
             </nav>
             <section>
 
-                <Link to="/shop/cart">Cart <FontAwesomeIcon icon={faShoppingCart} /></Link>
+                <Link to="/shop/cart">Cart <FontAwesomeIcon icon="shopping-cart" /></Link>
             </section>
         </div>
         <h1>Grow Urban</h1>
