@@ -1,4 +1,85 @@
-table.cart-items {
-color:red;
-border:1px solid red;
+section.table-container{
+    width: 90%;
+    margin: auto;
 }
+
+table.cart-items {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    table-layout: fixed
+}
+
+h1.cart-title{
+    text-align: center;
+}
+
+table.cart-items > thead > tr > th{
+    padding:0rem 0rem 0.5rem 0rem;
+}
+
+table.cart-items > tbody> tr > td{
+    border-top: 1px var(--LightGrey) solid;
+    border-bottom: 1px var(--LightGrey) solid;
+}
+
+table.cart-items > tbody > tr > td {
+    padding:1rem 0rem;
+    text-align: center;
+}
+
+table.cart-items > tbody > tr > td > input {
+    width: 25%;
+    color:var(--LightBlue);
+    border: 1px var(--LightGrey) solid;
+}
+
+table.cart-items > tbody > tr > td > button {
+    color:var(--LightBlue);
+    border: 1px var(--LightGrey) solid;
+}
+
+table.cart-items svg.delete-button:hover{
+    cursor: pointer;
+}
+
+section.cart-nav > p:hover {
+    margin:1rem 1.5rem;
+    cursor: pointer;
+}
+
+section.cart-nav > a {
+    margin:1rem 1.5rem;
+    color:var(--LightBlue);
+    text-decoration: none;
+}
+
+p.total-price  {
+    text-align: end;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 2rem 0rem;
+}
+
+/* 
+<table className="cart-items">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr key={product.id}>
+            <td>{product.product_name}</td>
+            <td>2</td>
+            <td>£{displayPriceWithDecimals(product.price)}</td>
+            <td>X</td>
+        </tr>
+    </tbody>
+</table>
+
+
+                     */

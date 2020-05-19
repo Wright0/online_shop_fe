@@ -60,6 +60,7 @@ function CustomerContainer() {
             <Route exact path="/shop/:category/:id" render={ () => 
                 <ViewProduct handleAddToCart={handleAddToCart}/>
             }/>
+
         </>
     )
 
