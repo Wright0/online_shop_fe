@@ -10,7 +10,7 @@ article.product-card {
     padding: 0.9rem;
     margin: 1%;
 
-    transition: .2s;
+    /* transition: .2s; */
 }
 
 /* Product Card header */
@@ -54,6 +54,6 @@ article.product-card img:hover {
     cursor: pointer;
 }
 
-/* section.products article:hover {
+section.products article:hover {
     border: solid 3px var(--LightGrey);
-} */
+}

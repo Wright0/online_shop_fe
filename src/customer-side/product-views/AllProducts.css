@@ -6,14 +6,14 @@ section.products {
     justify-content: center;
 }
 
-section.products:hover .product-card:not(:hover){
+/* section.products:hover .product-card:not(:hover){
     filter: grayscale(100%);
     opacity:0.5;
-}
+} */
 
-section.products:hover .product-card:not(:hover):after{
+/* section.products:hover .product-card:not(:hover):after{
     background-color: rgba(#000, 0.5);
-}
+} */
 
 
 /* Category headers */
