@@ -11,6 +11,8 @@ import CustomerContainer from './customer-side/CustomerContainer.js';
 import AdminPortalNav from './navigation/AdminPortalNav.js'
 import CustomerNav from './navigation/CustomerNav.js';
 
+import ShoppingCartSandbox from './customer-side/shopping-cart/ShoppingCartSandbox.js';
+
 function App() {
 
   return (
@@ -34,6 +36,10 @@ function App() {
           <AdminPortalNav/>
           <AdminContainer/>
         </>
+      }/>
+
+      <Route exact path="/testing" render={ () =>
+        <ShoppingCartSandbox/>
       }/>
 
       <Route render={() => <Error404/>} />

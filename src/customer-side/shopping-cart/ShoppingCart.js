@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useHistory, Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {displayPriceWithDecimals} from '../../shared-logic/PriceDecimalConversionLogic.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ShoppingCart.css';
@@ -8,62 +8,86 @@ function ShoppingCart({shoppingCartItemIds}){
 
     const history = useHistory();
 
-    const [productsInCart, setProductsInCart] = useState([])
+    const [cartItems, setCartItems] = useState([])
 
     const productUrls = shoppingCartItemIds.map(id => `http://localhost:8000/api/products/${id}/`)
 
-    const testProduct = {
-        "id":400,
-        "product_name": "Banana",
-        "category": "fruit",
-        "description": "It is yellow and sometimes has a nodemon, dude",
-        "image_url": "https://picsum.photos/450/300",
-        "price": "350",
-        "stock_quantity": "10"
+    const cartItem1 = {
+        "product": {
+            "id":400,
+            "product_name": "Banana",
+            "category": "fruit",
+            "description": "It is yellow and sometimes has a nodemon, dude",
+            "image_url": "https://picsum.photos/450/300",
+            "price": 350,
+            "stock_quantity": 10
+        },
+        "quantity": 1,
+        "price" : 350,
+        "total": 350
     }
 
-    const testProduct2 = {
-        "id":500,
-        "product_name": "Banana",
-        "category": "fruit",
-        "description": "It is yellow and sometimes has a nodemon, dude",
-        "image_url": "https://picsum.photos/450/300",
-        "price": "350",
-        "stock_quantity": "10"
+    const cartItem2 = {
+        "product": {
+            "id":500,
+            "product_name": "Carrot",
+            "category": "vegetable",
+            "description": "Good for your eyes",
+            "image_url": "https://picsum.photos/450/300",
+            "price": 900,
+            "stock_quantity": 6
+        },
+        "quantity": 2,
+        "price" : 900,
+        "total": 1800
     }
-
+    
     const getProducts = () => {
         Promise.all(productUrls.map(url => 
             fetch(url)
                 .then(response => response.json())
                 .catch(err => console.error)
             ))
-            .then(products => setProductsInCart([...products, testProduct, testProduct2]))
+            .then(products => setCartItems([...products, cartItem1, cartItem2]))
     }
 
     useEffect(() => {
         getProducts()
     }, [])
 
-    const itemIds = productsInCart.map((product) => {
+    const calculateBasket = () => {
+        return cartItems.reduce((runningTotal, cartItem) => {
+             return runningTotal + cartItem.total;
+         }, 0)
+     }
+
+     const handleQuantityChange = (event, cartItemProductId) => {
+         const newQuantity = parseInt(event.target.value)
+        const replacementCart = [...cartItems].map(cartItem => {
+            if (cartItem.product.id === cartItemProductId){
+                cartItem.quantity = newQuantity
+                cartItem.total = newQuantity * cartItem.price
+                return cartItem
+            } else {
+                return cartItem
+            }
+        })
+        setCartItems(replacementCart)
+     }
+
+    const itemIds = cartItems.map((cartItem) => {
         return (
-            <tr key={product.id}>
-                <td>{product.product_name}</td>
-                <td><input type="number" defaultValue="2"/> <button>Update <FontAwesomeIcon icon="sync-alt"/></button></td>
-                <td>£{displayPriceWithDecimals(product.price)}</td>
+            <tr key={cartItem.product.id}>
+                <td>{cartItem.product.product_name}</td>
+                <td><input type="number" defaultValue={cartItem.quantity} onChange={event => handleQuantityChange(event, cartItem.product.id)}/>
+                </td>
+                <td>£{displayPriceWithDecimals(cartItem.total)}</td>
                 <td><FontAwesomeIcon icon="times" className="delete-button" onClick={() => console.log("hi")}/></td>
             </tr>
         )
     })
 
-    const calculateBasket = () => {
-       return productsInCart.reduce((runningTotal, product) => {
-           const priceToInt = parseInt(product.price)
-            return runningTotal + priceToInt;
-        }, 0)
-    }
-
-    if (productsInCart.length === 0) {
+    if (cartItems.length === 0) {
         return (
             <>
                 <h1>Your cart is empty!</h1>
@@ -72,7 +96,7 @@ function ShoppingCart({shoppingCartItemIds}){
         )
     }
 
-    if(productsInCart.length >0){
+    if(cartItems.length >0){
         return (
             <>
             <section className="cart-nav">
@@ -98,6 +122,7 @@ function ShoppingCart({shoppingCartItemIds}){
                 </table>
 
                 <p className="total-price">Total: £{displayPriceWithDecimals(calculateBasket())}</p>
+                <button>Update <FontAwesomeIcon icon="sync-alt"/></button>
             </section>
             
             </>

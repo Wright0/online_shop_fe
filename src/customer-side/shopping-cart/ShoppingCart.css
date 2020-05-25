@@ -38,6 +38,9 @@ table.cart-items > tbody > tr > td > button {
     color:var(--LightBlue);
     border: 1px var(--LightGrey) solid;
 }
+table.cart-items button:hover{
+    cursor: pointer;
+}
 
 table.cart-items svg.delete-button:hover{
     cursor: pointer;
